@@ -85,13 +85,15 @@ class Doc(Document):
         return map(lambda doc: cls(doc, collection=cls._collection), result)
 
     @classmethod
-    def find_one(cls, spec_or_id=None, *args, **kwds):
+    def find_one(cls, spec_or_id=None, create_new=False, *args, **kwds):
         if isinstance(spec_or_id, basestring):
             spec_or_id = ObjectId(spec_or_id)
         o = cls._collection.find_one(spec_or_id, *args, **kwds)
         if o:
             o['_id'] = str(o['_id'])
             return cls(o, collection=cls._collection)
+        elif create_new == True:
+            return cls({}, collection=cls._collection)
 
     def delete(self):
         self._collection.remove({'_id': ObjectId(self['_id'])})

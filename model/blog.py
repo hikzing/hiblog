@@ -77,4 +77,5 @@ def blog_count(*args, **kwds):
 
 
 if __name__ == '__main__':
-    print(blog_count())
+    # print(blog_count())
+    print(Blog.find_one(dict(title='Hello World2'), create_new=True))

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf-8
+# coding: utf-8
 import _env
 from tornado.web import RequestHandler, HTTPError
 from model.session import Session
@@ -26,14 +26,23 @@ class BaseView(RequestHandler):
         self._current_user_id = value
 
     def render(self, template_name=None, **kwds):
-        """重写render的行为.
+        """ 重写render的行为.
         """
         if not self._finished:
             if template_name is None:
                 if not hasattr(self, 'template'):
-                    # 若没有提供模板名, 则使用类本身的名字作为模板名
-                    self.template = '{}.html'.format(self.__class__.__name__)
+                    # 若没有提供模板名, 则使用上层所在的modules名加上类名
+                    # 如: 在view/admin/index.py 里有一个名为test的 handlers 类
+                    # 则其默认模板名为admin/test.html
+                    path = self.__module__.split('.')
+                    path.pop(0)
+                    path.pop(-1)
+                    self.template = '{}/{}.html'.format(
+                        '/'.join(path),
+                        self.__class__.__name__
+                    )
                 template_name = self.template.lower()
+
             # 可在前端Mako中直接获取以下定义.
             kwds['current_user'] = self.current_user
             kwds['current_user_id'] = self.current_user_id
@@ -46,7 +55,7 @@ class LoginView(BaseView):
 
     """只接受已登录用户的请求. 否则引导其注册
     """
-    _login_templates = '/login.html'
+    _login_templates = 'login.html'
 
     def prepare(self):
         super(LoginView, self).prepare()

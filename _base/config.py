@@ -5,16 +5,15 @@ from _base.double_star import Star
 
 class Config:
 
-    """配置文件
-
-    使用:
-        >>> from config import Config
-        >>> db.connection(**Config.REDIS)
+    """ 配置文件
     """
 
+    # host
+    host = 'localhost:8888'
     host_name = "hiblog"
     host_desc = 'a clean blog system'
 
+    # app
     APP = 'blog'
     DEBUG = True
 

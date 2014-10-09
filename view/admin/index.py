@@ -1,14 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 from _base.app import Route
-from _base.my_view import BaseView
+from _base.my_view import AdminView, BaseView
 
 
 route = Route(prefix='/admin')
 
 
-@route('/')
-class Index(BaseView):
+@route('/?')
+class AdminIndex(AdminView):
 
     def get(self):
-        self.write('hello, i am admin')
+        pass
+
+
+@route('/test')
+class Test(BaseView):
+
+    def get(self):
+        self.render()

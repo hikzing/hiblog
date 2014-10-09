@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1412070462.03924
+_modified_time = 1412849946.245407
 _enable_loop = True
 _template_filename = u'/web/kzing.net/html/templates/_base.html'
 _template_uri = u'_base.html'
@@ -97,7 +97,7 @@ def render_nav(context):
         __M_writer(u'\n\n    <!-- Navigation -->\n    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">\n        <div class="container-fluid">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class="navbar-header page-scroll">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="')
         __M_writer(unicode(Config.host))
         __M_writer(u'">')
-        __M_writer(unicode(Config.host))
+        __M_writer(unicode(Config.host_name))
         __M_writer(u'</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n                <ul class="nav navbar-nav navbar-right">\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
         __M_writer(u'">Home</a>\n                    </li>\n                    <li>\n                        <a href="//')
