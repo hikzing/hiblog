@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
+import _env
 from model.db import Doc
-from model.re_mail import RE_MAIL
 from os import urandom
 from hashlib import sha512
 from base64 import b64encode
@@ -14,10 +14,6 @@ class Password(Doc):
         hash=str,
         _salt=int,
     )
-
-    @classmethod
-    def mail_verify(cls, mail):
-        return RE_MAIL.match(mail)
 
     @classmethod
     def new(cls, mail, password, salt=None):

@@ -10,8 +10,8 @@ class Config:
 
     # host
     host = 'localhost:8888'
-    host_name = "hiblog"
-    host_desc = 'a clean blog system'
+    host_name = "Hi, Blog"
+    host_desc = 'A Clean Blog System'
 
     # app
     APP = 'blog'
@@ -28,3 +28,6 @@ class Config:
         host = "127.0.0.1"
         port = 27017
     MONGO = MONGO()
+
+    # admin
+    admin_set = {'kzing@gmail.com', }

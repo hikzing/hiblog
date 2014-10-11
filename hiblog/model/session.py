@@ -1,25 +1,25 @@
 #!/usr/bin/env python
-from model.db import R, redis
+import _env
+
 from os import urandom
 from base64 import urlsafe_b64decode, urlsafe_b64encode
+from model.db import R, redis
 import binascii
-# from _base.config import HOST
 
 R_SESION = R.SESSION('%s')
 
 
 class Session:
 
-    EXPIRE = 365
+    EXPIRE_DAY = 365 * 24 * 3600
 
     @classmethod
-    def new(cls, id, expire=EXPIRE * 24 * 3600):
-        id = int(id)
-        if id:
-            key = R_SESION % id
+    def new(cls, account, expire=EXPIRE_DAY):
+        if account:
+            key = R_SESION % account
             s = redis.get(key) or urandom(12)
             redis.setex(key, expire, s)
-            return _encode(id, s)
+            return _encode(account, s)
 
     @classmethod
     def rm(cls, id):
@@ -28,33 +28,29 @@ class Session:
             redis.delete(key)
 
     @classmethod
-    def id_by_b64(cls, session):
-        id, binary = _decode(session)
-        if id:
-            key = R_SESION % id
+    def account_by_cookie(cls, cookie):
+        account, binary = _decode(cookie)
+        if account:
+            key = R_SESION % account
             if binary and binary == redis.get(key):
-                return id
-
-    def _encode(self, account, session, encode=urlsafe_b64encode):
-        return urlsafe_b64encode('{}.{}'.format(account, session))
-
-
-def _encode(id, session, encode=urlsafe_b64encode):
-    return '{id}.{ck_key}'.format(id=id, ck_key=encode(session))
+                return account
 
 
 def _decode(session):
     if not session:
         return None, None
-    id, value = session.split('.')
     try:
-        value = urlsafe_b64decode(value)
+        account_value = urlsafe_b64decode(session)
     except (binascii.Error, TypeError):
         return None, None
-    return int(id), value
+    account, value = account_value.split('.')
+    return account, value
 
 
-def _session_new(self, account, user_id):
-    session = Session.new(user_id)
-    self.set_cookie('S', session, domain="." + HOST, expires_days=Session.EXPIRE_DAY)
-    self.set_cookie('E', account, domain="auth." + HOST, expires_days=Session.EXPIRE_DAY)
+def _encode(account, session, encode=urlsafe_b64encode):
+    return urlsafe_b64encode('{}.{}'.format(account, session))
+
+
+if __name__ == '__main__':
+    s = Session.new('kzing')
+    print(Session.account_by_session(s))

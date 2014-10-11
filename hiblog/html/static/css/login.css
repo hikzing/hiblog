@@ -60,13 +60,13 @@ h1 {
 #submit {
     width: 200px;
     background: #27AE60;
-    font-weight: bold;
     color: white;
     border: 0 none;
     border-radius: 1px;
     cursor: pointer;
     padding: 10px 5px;
-    margin: 10px 90px;
+    margin: -5px 90px 15px 90px;
+    font-size: medium;
 }
 #submit:hover, #submit:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;

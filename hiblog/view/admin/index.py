@@ -14,13 +14,6 @@ class Index(AdminView):
         pass
 
 
-@route('/login')
-class Login(AdminView):
-
-    def get(self):
-        self.render()
-
-
 @route('/logout')
 class Logout(AdminView):
 

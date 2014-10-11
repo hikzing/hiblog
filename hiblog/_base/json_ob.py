@@ -31,3 +31,28 @@ class JsOb(dict):
 
     def __str__(self):
         return dumps(self)  # 能显示中文
+
+
+class StripJsOb(JsOb):
+
+    """ 去除 Json 对象的值的前后空白, 返回新的 Json对象
+
+    常用于处理用户的表单输入
+    """
+
+    def __init__(self, *args, **kwds):
+        super(StripJsOb, self).__init__(*args, **kwds)
+        for k, v in self.items():
+            if isinstance(v, basestring):
+                if not v.endswith('\n'):  # 保留换行符
+                    _v = v.strip()
+                else:
+                    _v = v.lstrip()
+                if _v != v:
+                    self[k] = _v
+
+
+if __name__ == '__main__':
+    # d = {'a':1, 'b':2}
+    d = JsOb(a='12 ', b=' ab          ', c=' dad\n')
+    print(StripJsOb(**d))

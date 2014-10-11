@@ -23,6 +23,8 @@ class Route:
 
     def __init__(self, prefix=''):
         self.handlers = []
+        if not prefix.startswith('/'):
+            prefix = '/' + prefix
         self._prefix = prefix
 
     def __call__(self, url, **kwds):

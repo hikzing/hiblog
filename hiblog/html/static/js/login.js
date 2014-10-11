@@ -32,5 +32,26 @@ $(".flp input").blur(function(){
 })
 
 
+$("#submitForm").submit(function() {
 
+    var url = "/admin/j/login";
 
+    $.ajax({
+           type: "POST",
+           url: url,
+           dataType:"json",
+
+           // data: getFormData("#submitForm"),
+           data: JSON.stringify($("#submitForm").serialize()),
+           contentType: "application/json; charset=utf-8",
+           success: function(data)
+           {
+               alert('ok');
+           },
+           error: function(data) {
+                alert('fail');
+           }
+         });
+
+    return false;
+});
