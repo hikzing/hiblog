@@ -1,0 +1,174 @@
+<%!
+from _base.config import Config
+%>
+
+<%def name="head(title)">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>${title}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/css/clean-blog.css" rel="stylesheet">
+
+    <!-- For highlight code -->
+    <!-- <link rel="stylesheet" href="../static/css/github.css"/> -->
+    <link rel="stylesheet" href="../static/css/tomorrow.css"/>
+
+</head>
+</%def>
+
+
+<%def name='nav()'>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="${Config.host}">${Config.host_name}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="//${Config.host}">Home</a>
+                    </li>
+                    <li>
+                        <a href="//${Config.host}/about">About</a>
+                    </li>
+                    <li>
+                        <a href="//${Config.host}/sample_post">Sample Post</a>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">Contact</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+</%def>
+
+
+<%def name='footer()'>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; kzing.net</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../static/js/clean-blog.js"></script>
+
+    <!-- Highlight code -->
+    <script src="../static/js/highlight.pack.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+
+</%def>
+
+<%def name='disqus()'>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+
+        var disqus_shortname = 'kzing'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</%def>
+
+<%def name='Pager(total, limit)'>
+
+    <%
+        template = '?p=%s'
+
+        now = int(this.get_argument("p", 1))
+        _next = _pre = ''
+
+        if now * limit < total:
+            _next = template % (now + 1)
+
+        if now > 1:
+            _pre = template % (now - 1)
+
+    %>
+    <ul class="pager">
+        % if _next:
+            <li class="next">
+                <a href="${_next}">Older Posts &rarr;</a>
+            </li>
+        % endif
+        % if _pre:
+            <li class="next pre">
+                <a href="${_pre}">&larr; Pre Posts </a>
+            </li>
+        % endif
+    </ul>
+
+</%def>

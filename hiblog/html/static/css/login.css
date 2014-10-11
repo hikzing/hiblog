@@ -1,0 +1,73 @@
+/*importing Sniglet*/
+/*@import url("http://fonts.googleapis.com/css?family=Sniglet");*/
+
+/*basic reset*/
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+body {
+    padding-top: 100px;
+    background: url('../img/gs.png');
+    font-family: Sniglet;
+}
+main {
+    width: 500px; margin: 0 auto; padding-bottom: 10px;
+    background: white; border-radius: 3px; overflow: hidden;
+}
+h1 {
+    font-size: 24px; font-weight: normal;
+    background: hsl(120, 40%, 95%); color: hsl(120, 40%, 40%);
+    text-align: center;
+    padding: 20px 0; margin-bottom: 40px;
+}
+
+.flp {padding: 0 50px;}
+/*Let's place the label over the input*/
+.flp div {position: relative; margin-bottom: 30px;}
+
+.flp input, .flp label {
+    width: 400px; display: block;
+    font: inherit; font-size: 16px; line-height: 24px;
+    /*fixed height for FF line height issue.
+    height = 24(lineheight) + 10*2(padding) + 2(border)*/
+    height: 46px;
+    border: 1px solid #999;
+}
+.flp input {padding: 10px; outline: none; border-radius: 3px;}
+.flp label {
+    position: absolute; left: 0; top: 0;
+    /*left/right padding will be 2px less, adjusted by padding on .ch*/
+    padding: 10px 8px;
+    border-color: transparent; color: #666;
+    cursor: text;
+}
+
+/*label styles*/
+.ch {
+    display: block; float: left;
+    position: relative; /*for upward animation*/
+    background: white;
+}
+.ch:first-child {padding-left: 2px;}
+.ch:last-child {padding-right: 2px;}
+
+/*active input label*/
+.focussed {
+    /*when any input is already focussed clicking on it(label) again won't do anything*/
+    pointer-events: none;
+}
+
+/*buttons*/
+#submit {
+    width: 200px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 90px;
+}
+#submit:hover, #submit:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
