@@ -51,7 +51,7 @@ def _decode(session):
     return int(id), value
 
 
-# def session_new(self, user_id, account):
-#     session = Session.new(user_id)
-#     # self.set_cookie('S', session, '.' + HOST, )
-#     pass
+def _session_new(self, account, user_id):
+    session = Session.new(user_id)
+    self.set_cookie('S', session, domain="." + HOST, expires_days=Session.EXPIRE_DAY)
+    self.set_cookie('E', account, domain="auth." + HOST, expires_days=Session.EXPIRE_DAY)

@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 # coding:utf-8
 from model.db import Doc
+from model.re_mail import RE_MAIL
 from os import urandom
-import re
 from hashlib import sha512
 from base64 import b64encode
-
-
-_RE_MAIL = re.compile(r'^\w+[-+.\w]*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
 
 
 class Password(Doc):
@@ -20,11 +17,11 @@ class Password(Doc):
 
     @classmethod
     def mail_verify(cls, mail):
-        return _RE_MAIL.match(mail)
+        return RE_MAIL.match(mail)
 
     @classmethod
     def new(cls, mail, password, salt=None):
-        salt = salt or urandom(64)
+        salt = salt or b64encode(urandom(64))
         o = Password.find_one(dict(mail=mail), create_new=True)
         o._salt = salt
 
@@ -47,4 +44,5 @@ class Password(Doc):
         return False
 
 if __name__ == '__main__':
-    Password.new('kzing@gmail.com', '1234567')
+    Password.new('kzing@gmail.com', '12345678')
+    print(Password.verify('kzing@gmail.com', '12345678'))

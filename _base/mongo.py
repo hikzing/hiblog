@@ -92,8 +92,8 @@ class Doc(Document):
         if o:
             o['_id'] = str(o['_id'])
             return cls(o, collection=cls._collection)
-        elif create_new == True:
-            return cls({}, collection=cls._collection)
+        elif create_new is True:
+            return cls(spec_or_id, collection=cls._collection)
 
     def delete(self):
         self._collection.remove({'_id': ObjectId(self['_id'])})

@@ -41,7 +41,7 @@ class App:
 
     @property
     def handlers(self, view_name='view'):
-        """ 返回所有在 view的_route_list里定义的route对应的 handlers.
+        """ 返回所有在 view的_route_list里定义的route的 handlers.
         """
         ROUTE_LIST = import_module('view._route_list').ROUTE_LIST
         handlers = []

@@ -9,21 +9,19 @@ from _base.mako_render import mako_render
 class BaseView(RequestHandler):
 
     @property
-    def current_user_id(self):
-        """ 从 cookie 中获取用户的 id, 如果没有则新建一个
-
-        可用于注册功能的实现
+    def current_user(self):
+        """ 从 cookie 中获取用户的名字
         """
-        if not hasattr(self, '_current_user_id'):
-            cookie = self.get_cookie('S')
-            self._current_user_id = _id = Session.id_by_b64(cookie)
+        if not hasattr(self, '_current_user'):
+            cookie = self.get_cookie('auth')
+            self._current_user = _id = Session.id_by_b64(cookie)
             if cookie and not _id:
                 self.clear_cookie('S', domain='.' + self.request.host)
         return self._current_user_id
 
-    @current_user_id.setter
-    def current_user_id(self, value):
-        self._current_user_id = value
+    @current_user.setter
+    def set_current_user(self, value):
+        self._current_user = value
 
     def render(self, template_name=None, **kwds):
         """ 重写render的行为.
