@@ -35,21 +35,29 @@ $(".flp input").blur(function(){
 $("#submitForm").submit(function() {
 
     var url = "/admin/j/login";
+    var email = $("input#email").val();
+    var password = $("input#password").val();
 
     $.ajax({
            type: "POST",
            url: url,
            dataType:"json",
-
-           // data: getFormData("#submitForm"),
-           data: JSON.stringify($("#submitForm").serialize()),
-           contentType: "application/json; charset=utf-8",
+           data: JSON.stringify({
+                    mail: email,
+                    password: password
+            }),
+           cache: false,
            success: function(data)
            {
-               alert('ok');
+               if(data && data.err) {
+                    var myhash = data.err;
+                    for(var key in myhash) {
+                        alert(myhash[key]);
+                    }
+               }
            },
            error: function(data) {
-                alert('fail');
+                alert('500 error');
            }
          });
 

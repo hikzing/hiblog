@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 from _base.app import Route
-from _base.my_view import AdminView
+from _base.my_view import AdminView, BaseView
 
 
 route = Route(prefix='/admin')
@@ -11,7 +11,7 @@ route = Route(prefix='/admin')
 class Index(AdminView):
 
     def get(self):
-        pass
+        self.write('test')
 
 
 @route('/logout')

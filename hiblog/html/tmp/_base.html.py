@@ -4,16 +4,16 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1412956195.811539
+_modified_time = 1413188258.826493
 _enable_loop = True
-_template_filename = u'/web/kzing.net/html/templates/_base.html'
-_template_uri = u'_base.html'
+_template_filename = u'/web/kzing.net/hiblog/html/templates/_base.html'
+_template_uri = u'/_base.html'
 _source_encoding = 'utf-8'
 _exports = ['Pager', 'head', 'disqus', 'nav', 'footer']
 
 
 
-from _base.config import Config
+from _base.config import Config, Prepare
 
 
 def render_body(context,**pageargs):
@@ -97,14 +97,16 @@ def render_nav(context):
         __M_writer(u'\n\n    <!-- Navigation -->\n    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">\n        <div class="container-fluid">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class="navbar-header page-scroll">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="')
         __M_writer(unicode(Config.host))
         __M_writer(u'">')
-        __M_writer(unicode(Config.host_name))
+        __M_writer(unicode(Prepare.name))
         __M_writer(u'</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n                <ul class="nav navbar-nav navbar-right">\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
         __M_writer(u'">Home</a>\n                    </li>\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
         __M_writer(u'/about">About</a>\n                    </li>\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
-        __M_writer(u'/sample_post">Sample Post</a>\n                    </li>\n                    <!-- <li>\n                        <a href="contact.html">Contact</a>\n                    </li> -->\n                </ul>\n            </div>\n            <!-- /.navbar-collapse -->\n        </div>\n        <!-- /.container -->\n    </nav>\n')
+        __M_writer(u'/contact">Contact</a>\n                    </li>\n                    <li>\n                        <a href="//')
+        __M_writer(unicode(Config.host))
+        __M_writer(u'/sample_post">Sample Post</a>\n                    </li>\n                </ul>\n            </div>\n            <!-- /.navbar-collapse -->\n        </div>\n        <!-- /.container -->\n    </nav>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -114,7 +116,9 @@ def render_footer(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
-        __M_writer(u'\n    <!-- Footer -->\n    <footer>\n        <div class="container">\n            <div class="row">\n                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">\n                    <ul class="list-inline text-center">\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                    </ul>\n                    <p class="copyright text-muted">Copyright &copy; kzing.net</p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src="../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../static/js/bootstrap.min.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../static/js/clean-blog.js"></script>\n\n    <!-- Highlight code -->\n    <script src="../static/js/highlight.pack.js"></script>\n    <script >hljs.initHighlightingOnLoad();</script>\n\n')
+        __M_writer(u'\n    <!-- Footer -->\n    <footer>\n        <div class="container">\n            <div class="row">\n                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">\n                    <ul class="list-inline text-center">\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                    </ul>\n                    <p class="copyright text-muted">Copyright &copy; ')
+        __M_writer(unicode(Prepare.name))
+        __M_writer(u'</p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src="../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../static/js/bootstrap.min.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../static/js/clean-blog.js"></script>\n\n    <!-- Highlight code -->\n    <script src="../static/js/highlight.pack.js"></script>\n    <script >hljs.initHighlightingOnLoad();</script>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -122,6 +126,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "29": 174, "35": 146, "41": 146, "42": 148, "56": 160, "57": 162, "58": 163, "59": 164, "60": 164, "61": 167, "62": 168, "63": 169, "64": 169, "65": 172, "71": 5, "75": 5, "76": 18, "77": 18, "83": 127, "87": 127, "93": 34, "97": 34, "98": 47, "99": 47, "100": 47, "101": 47, "102": 54, "103": 54, "104": 57, "105": 57, "106": 60, "107": 60, "113": 74, "117": 74, "123": 117}, "uri": "_base.html", "filename": "/web/kzing.net/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "29": 174, "35": 146, "41": 146, "42": 148, "56": 160, "57": 162, "58": 163, "59": 164, "60": 164, "61": 167, "62": 168, "63": 169, "64": 169, "65": 172, "71": 5, "75": 5, "76": 18, "77": 18, "83": 127, "87": 127, "93": 34, "97": 34, "98": 47, "99": 47, "100": 47, "101": 47, "102": 54, "103": 54, "104": 57, "105": 57, "106": 60, "107": 60, "108": 63, "109": 63, "115": 74, "119": 74, "120": 106, "121": 106, "127": 121}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """

@@ -25,9 +25,10 @@ class BaseView(RequestHandler):
         self.set_cookie(
             'auth',
             Session.new(account),
-            domain='.' + Config.HOST,
+            domain='.' + Config.host,
             expires_days=Session.EXPIRE_DAY
         )
+        print('set cookie')
 
     def render(self, template_name=None, **kwds):
         """ 重写render的行为.

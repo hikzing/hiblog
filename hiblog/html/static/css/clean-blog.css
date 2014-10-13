@@ -5,7 +5,7 @@
  */
 
 body {
-  font-family: "WenQuanYi Micro Hei Mono","WenQuanYi Micro Hei","Microsoft Yahei Mono","Microsoft Yahei",sans-serif!important;
+  font-family:"Open Sans", "WenQuanYi Micro Hei Mono","WenQuanYi Micro Hei","Microsoft Yahei Mono","Microsoft Yahei",sans-serif!important;
   font-size: 17px;
   color: #404040;
 }
@@ -323,7 +323,7 @@ footer .copyright {
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
 }
-.btn
+.btn {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;

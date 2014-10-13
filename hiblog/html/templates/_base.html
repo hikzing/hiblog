@@ -1,5 +1,5 @@
 <%!
-from _base.config import Config
+from _base.config import Config, Prepare
 %>
 
 <%def name="head(title)">
@@ -44,7 +44,7 @@ from _base.config import Config
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${Config.host}">${Config.host_name}</a>
+                <a class="navbar-brand" href="${Config.host}">${Prepare.name}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,11 +57,11 @@ from _base.config import Config
                         <a href="//${Config.host}/about">About</a>
                     </li>
                     <li>
+                        <a href="//${Config.host}/contact">Contact</a>
+                    </li>
+                    <li>
                         <a href="//${Config.host}/sample_post">Sample Post</a>
                     </li>
-                    <!-- <li>
-                        <a href="contact.html">Contact</a>
-                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -103,7 +103,7 @@ from _base.config import Config
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; kzing.net</p>
+                    <p class="copyright text-muted">Copyright &copy; ${Prepare.name}</p>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ R_SESION = R.SESSION('%s')
 
 class Session:
 
-    EXPIRE_DAY = 365 * 24 * 3600
+    EXPIRE_DAY = 365
 
     @classmethod
     def new(cls, account, expire=EXPIRE_DAY):

@@ -2,38 +2,32 @@
 # coding: utf-8
 import _env
 from _base.app import Route
-from _base.my_view import JsonView
+from _base.my_view import JsonErrView
+from _base.json_ob import JsOb
+from model.re_mail import RE_MAIL
+from model.msg import msg_new
 
 
 route = Route()
 
 
-@route('/j/tag')
-class Tag(JsonView):
+@route('/j/contact')
+class Contact(JsonErrView):
 
     def post(self):
-        self.finish()
+        o = self.json
+        err = JsOb()
 
+        if not o.name:
+            err.name = "Please enter your name"
+        if not o.email:
+            err.email = "Please enter your email"
+        elif not RE_MAIL.match(o.email):
+            err.email = "Not a valid email address"
+        if not o.message:
+            err.message = "Please enter your message"
 
-@route('/j/category')
-class Category(JsonView):
+        if not err:
+            msg_new(o.name, o.email, o.message)
 
-    def post(self):
-        self.finish()
-
-
-@route('/j/post')
-class Post(JsonView):
-
-    def post(self):
-        self.finish()
-
-
-@route('/j/blog')
-class Blog(JsonView):
-
-    limit = 8
-
-    def post(self):
-        offset = self.get_argument('page', default=0)
-
+        self.render(err)
