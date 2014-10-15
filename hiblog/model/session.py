@@ -43,14 +43,14 @@ def _decode(session):
         account_value = urlsafe_b64decode(session)
     except (binascii.Error, TypeError):
         return None, None
-    account, value = account_value.split('.')
-    return account, value
+    return account_value.split('-')  # (account, session_value)
 
 
 def _encode(account, session, encode=urlsafe_b64encode):
-    return urlsafe_b64encode('{}.{}'.format(account, session))
+    return urlsafe_b64encode('{}-{}'.format(account, session))
 
 
 if __name__ == '__main__':
     s = Session.new('kzing')
-    print(Session.account_by_session(s))
+    # cookies = "MjEzQDEzLmNvbS5_gm2z5ISP8Vv5_bw="
+    print(Session.account_by_cookie(s))

@@ -2,7 +2,7 @@
 # coding:utf-8
 import _env
 from _base.app import Route
-from _base.my_view import BaseView
+from _base.controller import BaseView
 from _base.config import Config, Prepare
 from _base.json_ob import JsOb
 from model.blog import blog_lists_by_date, blog_from_slug_name, blog_count

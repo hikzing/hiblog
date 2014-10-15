@@ -2,7 +2,7 @@
 # coding: utf-8
 import _env
 from _base.app import Route
-from _base.my_view import JsonView, JsonErrView
+from _base.controller import JsonView, JsonErrView
 from _base.json_ob import JsOb
 from model.re_mail import RE_MAIL
 from model.password import Password
@@ -27,12 +27,10 @@ class Login(JsonErrView):
             err.password = '请输入密码'
 
         if not err:
-            # if Password.verify(account, password):
-            if 1:
+            if Password.verify(account, password):
                 self.set_session(account)
             else:
                 err.password = "帐号或密码错误"
-
         self.render(err)
 
 

@@ -2,7 +2,7 @@
 # coding: utf-8
 import _env
 from _base.app import Route
-from _base.my_view import JsonErrView
+from _base.controller import JsonErrView
 from _base.json_ob import JsOb
 from model.re_mail import RE_MAIL
 from model.msg import msg_new

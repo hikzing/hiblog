@@ -4,10 +4,10 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413188258.826493
+_modified_time = 1413345058.55491
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/_base.html'
-_template_uri = u'/_base.html'
+_template_uri = u'_base.html'
 _source_encoding = 'utf-8'
 _exports = ['Pager', 'head', 'disqus', 'nav', 'footer']
 
@@ -94,11 +94,7 @@ def render_nav(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
-        __M_writer(u'\n\n    <!-- Navigation -->\n    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">\n        <div class="container-fluid">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class="navbar-header page-scroll">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="')
-        __M_writer(unicode(Config.host))
-        __M_writer(u'">')
-        __M_writer(unicode(Prepare.name))
-        __M_writer(u'</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n                <ul class="nav navbar-nav navbar-right">\n                    <li>\n                        <a href="//')
+        __M_writer(u'\n\n    <!-- Navigation -->\n    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">\n        <div class="container-fluid">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class="navbar-header page-scroll">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="/admin">HiAdmin</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n                <ul class="nav navbar-nav navbar-right">\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
         __M_writer(u'">Home</a>\n                    </li>\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
@@ -126,6 +122,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "29": 174, "35": 146, "41": 146, "42": 148, "56": 160, "57": 162, "58": 163, "59": 164, "60": 164, "61": 167, "62": 168, "63": 169, "64": 169, "65": 172, "71": 5, "75": 5, "76": 18, "77": 18, "83": 127, "87": 127, "93": 34, "97": 34, "98": 47, "99": 47, "100": 47, "101": 47, "102": 54, "103": 54, "104": 57, "105": 57, "106": 60, "107": 60, "108": 63, "109": 63, "115": 74, "119": 74, "120": 106, "121": 106, "127": 121}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "29": 174, "35": 146, "41": 146, "42": 148, "56": 160, "57": 162, "58": 163, "59": 164, "60": 164, "61": 167, "62": 168, "63": 169, "64": 169, "65": 172, "71": 5, "75": 5, "76": 18, "77": 18, "83": 127, "87": 127, "93": 34, "97": 34, "98": 54, "99": 54, "100": 57, "101": 57, "102": 60, "103": 60, "104": 63, "105": 63, "111": 74, "115": 74, "116": 106, "117": 106, "123": 117}, "uri": "_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """

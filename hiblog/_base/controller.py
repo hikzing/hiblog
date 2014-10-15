@@ -13,7 +13,7 @@ from yajl import loads
 class BaseView(RequestHandler):
 
     def get_current_user(self):
-        """重写此方法以从 cookie 中获取用户身份
+        """从 cookie 中分析出用户, 激活self.current_user方法
         """
         cookie = self.get_cookie('auth')
         self._current_user = _account = Session.account_by_cookie(cookie)
@@ -22,13 +22,18 @@ class BaseView(RequestHandler):
         return self._current_user
 
     def set_session(self, account):
+        """ 设置session以实现用户登录
+        """
         self.set_cookie(
             'auth',
             Session.new(account),
-            domain='.' + Config.host,
             expires_days=Session.EXPIRE_DAY
         )
-        print('set cookie')
+
+    @property
+    def can_admin(self):
+        current_user = self.current_user
+        return current_user and current_user in Config.admin_set
 
     def render(self, template_name=None, **kwds):
         """ 重写render的行为.
@@ -38,7 +43,7 @@ class BaseView(RequestHandler):
                 if not hasattr(self, 'template'):
                     # 若没有提供模板名, 则使用上层所在的modules名加上类名
                     # 如: 在view/admin/index.py 里有一个名为test的 handlers 类
-                    # 则其默认模板名为admin/test.html
+                    # 则其默认模板路径为admin/test.html
                     path = self.__module__.split('.')
                     path.pop(0)
                     path.pop(-1)
@@ -59,13 +64,13 @@ class LoginView(BaseView):
 
     """只接受已登录用户的请求. 否则引导其注册
     """
-    _login_templates = 'login.html'
+    __login_templates = 'login.html'
 
     def prepare(self):
         super(LoginView, self).prepare()
         if not self._finished:
             if not self.current_user:
-                self.render(self._login_templates)
+                self.render(self.__login_templates)
 
 
 class AdminView(LoginView):
@@ -73,10 +78,10 @@ class AdminView(LoginView):
     """ 网站管理员
     """
 
-    def preapare(self):
-        super(AdminView, self).preapare()
+    def prepare(self):
+        super(AdminView, self).prepare()
         if not self._finished:
-            if not self.current_user in Config.admin_set:
+            if not self.can_admin:
                 raise HTTPError(405)
 
 
@@ -106,7 +111,7 @@ class JsonAdminView(JsonLoginView):
     def prepare(self):
         super(JsonAdminView, self).prepare()
         if not self._finished:
-            if not self.host.can_admin(self.current_user):
+            if not self.can_admin:
                 raise HTTPError(405)
 
 
@@ -114,6 +119,8 @@ class JsonErrView(JsonView):
 
     @property
     def json(self):
+        """前端传递来的 json 数据
+        """
         return StripJsOb(**loads(self.request.body))
 
     def render(self, chunk):
@@ -135,5 +142,4 @@ class JsonErrView(JsonView):
         callback = self.get_argument('callback', None)
         if callback:
             chunk = "%s(%s)" % (callback, chunk)
-        # self.finish(chunk)
         super(JsonErrView, self).finish(chunk)
