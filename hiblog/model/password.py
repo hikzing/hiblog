@@ -40,5 +40,6 @@ class Password(Doc):
         return False
 
 if __name__ == '__main__':
-    Password.new('kzing@gmail.com', '12345678')
-    print(Password.verify('kzing@gmail.com', '12345678'))
+    # Password.new('kzing@gmail.com', '12345678')
+    Password.new('test@gmail.com', 'test')
+    # print(Password.verify('kzing@gmail.com', '12345678'))

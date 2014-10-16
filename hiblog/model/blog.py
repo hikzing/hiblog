@@ -41,7 +41,7 @@ class Blog(Doc):
     def summarize(self):
         """摘要
         """
-        return self.content.split('\n', 1)[0]  # TODO: may be there is a better
+        return self.content.split('\n', 1)[0]  # TODO: may be there is a better way
 
 
 def blog_lists_by_date(offset=0, limit=0):

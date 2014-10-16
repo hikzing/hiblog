@@ -30,7 +30,7 @@ class Login(JsonErrView):
             if Password.verify(account, password):
                 self.set_session(account)
             else:
-                err.password = "帐号或密码错误"
+                err.password = '帐号或密码错误'
         self.render(err)
 
 

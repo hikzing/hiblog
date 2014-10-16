@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#coding:utf-8
+
 import _env
 
 from os import urandom
@@ -14,7 +16,7 @@ class Session:
     EXPIRE_DAY = 365
 
     @classmethod
-    def new(cls, account, expire=EXPIRE_DAY):
+    def new(cls, account, expire=EXPIRE_DAY * 24 * 3660):
         if account:
             key = R_SESION % account
             s = redis.get(key) or urandom(12)
@@ -43,7 +45,7 @@ def _decode(session):
         account_value = urlsafe_b64decode(session)
     except (binascii.Error, TypeError):
         return None, None
-    return account_value.split('-')  # (account, session_value)
+    return account_value.split('-', 1)  # (account, session_value)
 
 
 def _encode(account, session, encode=urlsafe_b64encode):
@@ -51,6 +53,7 @@ def _encode(account, session, encode=urlsafe_b64encode):
 
 
 if __name__ == '__main__':
-    s = Session.new('kzing')
+    # s = Session.new('kzing')
     # cookies = "MjEzQDEzLmNvbS5_gm2z5ISP8Vv5_bw="
+    s = "a3ppbmdAZ21haWwuY29tLbWrNNw0fzMy2C3uvg=="
     print(Session.account_by_cookie(s))

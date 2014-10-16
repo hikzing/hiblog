@@ -12,7 +12,7 @@ route = Route(prefix='/admin')
 class Index(AdminView):
 
     def get(self):
-        self.write('test')
+        self.render()
 
 
 @route('/logout')
