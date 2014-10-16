@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding:utf-8
+import _env
 import time
 from model.db import Doc
 
@@ -18,7 +19,6 @@ class Blog(Doc):
     )
 
     default_values = dict(
-        _date=time.time(),      # 默认为当前时间的时间戳
         watch=1
     )
 
@@ -78,4 +78,4 @@ def blog_count(*args, **kwds):
 
 if __name__ == '__main__':
     # print(blog_count())
-    print(Blog.find_one(dict(title='Hello World2'), create_new=True))
+    print(Blog.find_one(dict(title='Hello World2')))

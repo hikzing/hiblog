@@ -31,7 +31,6 @@ class Msg(Doc):
 
 
 def msg_new(user_name, user_mail, msg):
-
     _time = time()
 
     o = Msg()
@@ -50,8 +49,7 @@ def msg_unread_list(start=0, stop=-1):
     注意 id_list的值为文档对象的隐藏_id值
     """
     id_list = redis.zrange(R_UNREAD_MSG_ZSET, start, stop)
-    # return [Msg.find_one(id) for id in id_list]
-    return []
+    return [Msg.find_one(id) for id in id_list]
 
 
 def msg_unread_count():
@@ -70,14 +68,4 @@ def msg_read_all():
     redis.delete(R_UNREAD_MSG_ZSET)
 
 if __name__ == '__main__':
-    # msg_new('kzing', 'kzin@gmail.com', 'hello, msg')
-    # msg_new('kzing', 'kzin@gmail.com', 'hello, msg2222')
-    for o in msg_unread_list():
-        # o = Msg.find_one(_id)
-        print(o.user_name, o.user_mail, o.msg, o._id)
-    # print(msg_unread_count())
-    # msg_read('543ba0bcf543d635544bb588')
-    # print(msg_unread_count())
-    # msg_read_all()
-    # print(msg_unread_count())
-    # print(msg_unread_list())
+    pass
