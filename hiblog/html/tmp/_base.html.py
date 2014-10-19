@@ -4,12 +4,12 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413345058.55491
+_modified_time = 1413636039.883836
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/_base.html'
-_template_uri = u'_base.html'
+_template_uri = u'/_base.html'
 _source_encoding = 'utf-8'
-_exports = ['Pager', 'head', 'disqus', 'nav', 'footer']
+_exports = ['head', 'disqus', 'nav', 'footer']
 
 
 
@@ -25,44 +25,7 @@ def render_body(context,**pageargs):
         __M_writer(u'\n\n\n')
         __M_writer(u'\n\n\n')
         __M_writer(u'\n\n')
-        __M_writer(u'\n\n')
         __M_writer(u'\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_Pager(context,total,limit):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        int = context.get('int', UNDEFINED)
-        this = context.get('this', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer(u'\n\n    ')
-
-        template = '?p=%s'
-        
-        now = int(this.get_argument("p", 1))
-        _next = _pre = ''
-        
-        if now * limit < total:
-            _next = template % (now + 1)
-        
-        if now > 1:
-            _pre = template % (now - 1)
-        
-            
-        
-        __M_writer(u'\n    <ul class="pager">\n')
-        if _next:
-            __M_writer(u'            <li class="next">\n                <a href="')
-            __M_writer(unicode(_next))
-            __M_writer(u'">Older Posts &rarr;</a>\n            </li>\n')
-        if _pre:
-            __M_writer(u'            <li class="next pre">\n                <a href="')
-            __M_writer(unicode(_pre))
-            __M_writer(u'">&larr; Pre Posts </a>\n            </li>\n')
-        __M_writer(u'    </ul>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -122,6 +85,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "29": 174, "35": 146, "41": 146, "42": 148, "56": 160, "57": 162, "58": 163, "59": 164, "60": 164, "61": 167, "62": 168, "63": 169, "64": 169, "65": 172, "71": 5, "75": 5, "76": 18, "77": 18, "83": 127, "87": 127, "93": 34, "97": 34, "98": 54, "99": 54, "100": 57, "101": 57, "102": 60, "103": 60, "104": 63, "105": 63, "111": 74, "115": 74, "116": 106, "117": 106, "123": 117}, "uri": "_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "34": 5, "38": 5, "39": 18, "40": 18, "46": 127, "50": 127, "56": 34, "60": 34, "61": 54, "62": 54, "63": 57, "64": 57, "65": 60, "66": 60, "67": 63, "68": 63, "74": 74, "78": 74, "79": 106, "80": 106, "86": 80}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """

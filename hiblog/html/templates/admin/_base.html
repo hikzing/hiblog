@@ -116,6 +116,41 @@ from model.msg import msg_unread_list
         </nav>
 </%def>
 
+<%def name="nav_side(cur_path=None)">
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <%
+                    timeline_active = new_active = msg_active = setting_active = ""
+                    if cur_path is None:
+                        timeline_active = "active"
+                    elif cur_path == "blog_new":
+                        new_active = "active"
+                    elif cur_path == "msg":
+                        msg_active = "active"
+                    elif cur_path == "setting":
+                        setting_active = "active"
+                %>
+                <li>
+                    <a class="${timeline_active}" href="/admin"><i class="fa fa-dashboard fa-fw"></i>Timeline</a>
+                </li>
+                <li>
+                    <a class = "${new_active}" href="/admin/blog/edit?new=True"><i class="fa fa-edit fa-fw"></i>New</a>
+                </li>
+                <li>
+                    <a class = "${msg_active}" href="/admin/msg"><i class="fa  fa-table fa-fw"></i> Message</a>
+                </li>
+                 <li>
+                    <a class = "${setting_active}" href="/admin/setting"><i class="fa fa-facebook fa-fw"></i> Setting</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</%def>
+
+
 <%def name="footer()">
     <!-- jQuery Version 1.11.0 -->
     <script src="../../static/js/jquery.min.js"></script>
@@ -134,3 +169,4 @@ from model.msg import msg_unread_list
     <!-- Custom Theme JavaScript -->
     <script src="../../static/js/admin/sb-admin-2.js"></script>
 </%def>
+

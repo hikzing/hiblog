@@ -4,12 +4,12 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413456329.39943
+_modified_time = 1413636911.25837
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/admin/_base.html'
 _template_uri = u'admin/_base.html'
 _source_encoding = 'utf-8'
-_exports = ['head', 'nav', 'footer']
+_exports = ['head', 'footer', 'nav', 'nav_side']
 
 
 
@@ -25,7 +25,8 @@ def render_body(context,**pageargs):
         __M_writer(u'\n')
         __M_writer(u'\n\n\n')
         __M_writer(u'\n\n')
-        __M_writer(u'\n')
+        __M_writer(u'\n\n\n')
+        __M_writer(u'\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -36,6 +37,16 @@ def render_head(context):
     try:
         __M_writer = context.writer()
         __M_writer(u'\n<!DOCTYPE html>\n<html lang="en">\n\n<head>\n\n    <meta charset="utf-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="description" content="">\n    <meta name="author" content="">\n\n    <title>Admin</title>\n\n    <!-- Bootstrap Core CSS -->\n    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">\n\n    <!-- MetisMenu CSS -->\n    <link href="../../static/css/admin/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">\n\n    <!-- Timeline CSS -->\n    <link href="../../static/css/admin/plugins/timeline.css" rel="stylesheet">\n\n    <!-- Custom CSS -->\n    <link href="../../static/css/admin/sb-admin-2.css" rel="stylesheet">\n\n    <!-- Morris Charts CSS -->\n    <link href="../../static/css/admin/plugins/morris.css" rel="stylesheet">\n\n    <!-- Custom Fonts -->\n    <link href="../../static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n\n\n</head>\n\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_footer(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        __M_writer = context.writer()
+        __M_writer(u'\n    <!-- jQuery Version 1.11.0 -->\n    <script src="../../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../../static/js/bootstrap.min.js"></script>\n\n    <!-- Metis Menu Plugin JavaScript -->\n    <script src="../../static/js/admin/plugins/metisMenu/metisMenu.min.js"></script>\n\n    <!-- Morris Charts JavaScript -->\n    <script src="../../static/js/admin/plugins/morris/raphael.min.js"></script>\n    <script src="../../static/js/admin/plugins/morris/morris.min.js"></script>\n    <script src="../../static/js/admin/plugins/morris/morris-data.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../../static/js/admin/sb-admin-2.js"></script>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -69,11 +80,32 @@ def render_nav(context):
         context.caller_stack._pop_frame()
 
 
-def render_footer(context):
+def render_nav_side(context,cur_path=None):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
-        __M_writer(u'\n    <!-- jQuery Version 1.11.0 -->\n    <script src="../../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../../static/js/bootstrap.min.js"></script>\n\n    <!-- Metis Menu Plugin JavaScript -->\n    <script src="../../static/js/admin/plugins/metisMenu/metisMenu.min.js"></script>\n\n    <!-- Morris Charts JavaScript -->\n    <script src="../../static/js/admin/plugins/morris/raphael.min.js"></script>\n    <script src="../../static/js/admin/plugins/morris/morris.min.js"></script>\n    <script src="../../static/js/admin/plugins/morris/morris-data.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../../static/js/admin/sb-admin-2.js"></script>\n')
+        __M_writer(u'\n    <div class="navbar-default sidebar" role="navigation">\n        <div class="sidebar-nav navbar-collapse">\n            <ul class="nav" id="side-menu">\n                ')
+
+        timeline_active = new_active = msg_active = setting_active = ""
+        if cur_path is None:
+            timeline_active = "active"
+        elif cur_path == "blog_new":
+            new_active = "active"
+        elif cur_path == "msg":
+            msg_active = "active"
+        elif cur_path == "setting":
+            setting_active = "active"
+                        
+        
+        __M_writer(u'\n                <li>\n                    <a class="')
+        __M_writer(unicode(timeline_active))
+        __M_writer(u'" href="/admin"><i class="fa fa-dashboard fa-fw"></i>Timeline</a>\n                </li>\n                <li>\n                    <a class = "')
+        __M_writer(unicode(new_active))
+        __M_writer(u'" href="/admin/blog/edit?new=True"><i class="fa fa-edit fa-fw"></i>New</a>\n                </li>\n                <li>\n                    <a class = "')
+        __M_writer(unicode(msg_active))
+        __M_writer(u'" href="/admin/msg"><i class="fa  fa-table fa-fw"></i> Message</a>\n                </li>\n                 <li>\n                    <a class = "')
+        __M_writer(unicode(setting_active))
+        __M_writer(u'" href="/admin/setting"><i class="fa fa-facebook fa-fw"></i> Setting</a>\n                </li>\n            </ul>\n        </div>\n        <!-- /.sidebar-collapse -->\n    </div>\n    <!-- /.navbar-static-side -->\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -81,6 +113,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 40, "27": 117, "28": 136, "34": 5, "38": 5, "44": 43, "48": 43, "49": 63, "53": 65, "54": 66, "55": 67, "56": 68, "57": 71, "58": 71, "59": 73, "60": 73, "61": 76, "62": 76, "63": 80, "64": 89, "65": 90, "66": 94, "72": 119, "76": 119, "82": 76}, "uri": "admin/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 40, "27": 117, "28": 151, "29": 171, "35": 5, "39": 5, "45": 154, "49": 154, "55": 43, "59": 43, "60": 63, "64": 65, "65": 66, "66": 67, "67": 68, "68": 71, "69": 71, "70": 73, "71": 73, "72": 76, "73": 76, "74": 80, "75": 89, "76": 90, "77": 94, "83": 119, "87": 119, "88": 123, "100": 133, "101": 135, "102": 135, "103": 138, "104": 138, "105": 141, "106": 141, "107": 144, "108": 144, "114": 108}, "uri": "admin/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/_base.html"}
 __M_END_METADATA
 """

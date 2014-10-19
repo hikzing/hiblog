@@ -5,7 +5,7 @@ from _base.app import Route
 from _base.controller import BaseView
 from _base.config import Config, Prepare
 from _base.json_ob import JsOb
-from model.blog import blog_lists_by_date, blog_from_slug_name, blog_count
+from model.blog import blog_lists, blog_by_slug_name, blog_count
 from model.my_markdown import turn_to_markdown
 
 
@@ -15,26 +15,16 @@ route = Route()
 @route('/')
 class Index(BaseView):
 
-    blog_limit = 8  # 主页展示的文章数量
+    blog_limit = 2  # 主页展示的文章数量
 
     def get(self):
         offset = int(self.get_argument('p', 1)) - 1
         limit = self.blog_limit
 
-        blogs = []
-        for ob in blog_lists_by_date(offset * limit, limit):
-            blogs.append(JsOb(
-                title=ob.title,
-                summarize=turn_to_markdown(ob.summarize),
-                author=ob.author,
-                post_date=ob.post_date,
-                author_page=ob.author_page or 'about',  # 文章作者默认为网站拥有者
-                slug_title=ob.slug_title,
-            ))
         return self.render(
-            home_title=Prepare.name,  # 主页的标题
-            home_desc=Prepare.desc,   # 主页描述
-            blogs=blogs,
+            home_title=Prepare.name,      # 主页的标题
+            home_desc=Prepare.desc,       # 主页描述
+            blogs=[o.detail_dumps for o in blog_lists(offset * limit, limit)],
             total=blog_count(),           # 分页用: blog的总数.
             limit=limit                   # 分页用: 每页的显示数.
         )
@@ -45,7 +35,7 @@ class Post(BaseView):
 
     def get(self, blog_name):
 
-        blog = blog_from_slug_name(blog_name)
+        blog = blog_by_slug_name(blog_name)
         if blog:
             return self.render(
                 title='{} | article'.format(Config.host),

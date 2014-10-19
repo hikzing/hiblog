@@ -1,0 +1,74 @@
+<%namespace name="base" file="_base.html"/>
+
+${base.head()}
+<body>
+
+    <div id="wrapper">
+
+        ${base.nav()}
+
+        ${base.nav_side('blog_new')}
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    % if this.get_argument('new', None):
+                        <h1 class="page-header">Blog New</h1>
+                    % else:
+                        <h1 class="page-header">Blog Edit</h1>
+                    % endif
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                <div class="col-lg-20">
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8 col-centered">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Text Input</label>
+                                            <input class="form-control">
+                                            <p class="help-block">Example block-level help text here.</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Text Input with Placeholder</label>
+                                            <input class="form-control" placeholder="Enter text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Static Control</label>
+                                            <p class="form-control-static">email@example.com</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>File input</label>
+                                            <input type="file">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Text area</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                     </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    ${base.footer()}
+</body>
+
+</html>

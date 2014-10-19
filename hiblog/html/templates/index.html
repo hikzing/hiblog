@@ -1,5 +1,5 @@
-
 <%namespace name="base" file="_base.html"/>
+<%namespace name="pager" file="_pager.html"/>
 
 
 ${base.head('kzing.net | Home')}
@@ -43,7 +43,7 @@ ${base.head('kzing.net | Home')}
                 % endfor
 
                 <!-- Pager -->
-                ${base.Pager(total, limit)}
+                ${pager.Pager(total, limit)}
             </div>
         </div>
     </div>

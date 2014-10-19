@@ -142,33 +142,3 @@ from _base.config import Config, Prepare
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 </%def>
-
-<%def name='Pager(total, limit)'>
-
-    <%
-        template = '?p=%s'
-
-        now = int(this.get_argument("p", 1))
-        _next = _pre = ''
-
-        if now * limit < total:
-            _next = template % (now + 1)
-
-        if now > 1:
-            _pre = template % (now - 1)
-
-    %>
-    <ul class="pager">
-        % if _next:
-            <li class="next">
-                <a href="${_next}">Older Posts &rarr;</a>
-            </li>
-        % endif
-        % if _pre:
-            <li class="next pre">
-                <a href="${_pre}">&larr; Pre Posts </a>
-            </li>
-        % endif
-    </ul>
-
-</%def>

@@ -1,0 +1,30 @@
+<!-- 分页器 -->
+<%def name='Pager(total, limit)'>
+
+    <%
+        template = '?p=%s'
+
+        now = int(this.get_argument("p", 1))
+        _next = _pre = ''
+
+        if now * limit < total:
+            _next = template % (now + 1)
+
+        if now > 1:
+            _pre = template % (now - 1)
+
+    %>
+    <ul class="pager">
+        % if _next:
+            <li class="next">
+                <a href="${_next}">下一页 &rarr;</a>
+            </li>
+        % endif
+        % if _pre:
+            <li class="next pre">
+                <a href="${_pre}">&larr; 上一页 </a>
+            </li>
+        % endif
+    </ul>
+
+</%def>
