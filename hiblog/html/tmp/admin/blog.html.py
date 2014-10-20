@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413636593.291627
+_modified_time = 1413794434.915179
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/blog.html'
 _template_uri = 'admin/blog.html'
@@ -28,6 +28,7 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         this = context.get('this', UNDEFINED)
         base = _mako_get_namespace(context, 'base')
+        author = context.get('author', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\r\n\r\n')
         __M_writer(unicode(base.head()))
@@ -40,7 +41,9 @@ def render_body(context,**pageargs):
             __M_writer(u'                        <h1 class="page-header">Blog New</h1>\r\n')
         else:
             __M_writer(u'                        <h1 class="page-header">Blog Edit</h1>\r\n')
-        __M_writer(u'                </div>\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n            <div class="row">\r\n                <div class="col-lg-20">\r\n                    <div class="panel panel-default">\r\n\r\n                        <div class="panel-body">\r\n                            <div class="row">\r\n                                <div class="col-lg-8 col-centered">\r\n                                    <form role="form">\r\n                                        <div class="form-group">\r\n                                            <label>Text Input</label>\r\n                                            <input class="form-control">\r\n                                            <p class="help-block">Example block-level help text here.</p>\r\n                                        </div>\r\n                                        <div class="form-group">\r\n                                            <label>Text Input with Placeholder</label>\r\n                                            <input class="form-control" placeholder="Enter text">\r\n                                        </div>\r\n                                        <div class="form-group">\r\n                                            <label>Static Control</label>\r\n                                            <p class="form-control-static">email@example.com</p>\r\n                                        </div>\r\n                                        <div class="form-group">\r\n                                            <label>File input</label>\r\n                                            <input type="file">\r\n                                        </div>\r\n                                        <div class="form-group">\r\n                                            <label>Text area</label>\r\n                                            <textarea class="form-control" rows="3"></textarea>\r\n                                        </div>\r\n                                     </form>\r\n                                </div>\r\n                                <!-- /.col-lg-6 (nested) -->\r\n                            </div>\r\n                            <!-- /.row (nested) -->\r\n                        </div>\r\n                        <!-- /.panel-body -->\r\n                    </div>\r\n                    <!-- /.panel -->\r\n                </div>\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n            <!-- /.row -->\r\n        </div>\r\n        <!-- /#page-wrapper -->\r\n\r\n    </div>\r\n    <!-- /#wrapper -->\r\n\r\n    ')
+        __M_writer(u'                </div>\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n            <div class="row">\r\n                <div class="col-lg-20">\r\n                    <div class="panel panel-default">\r\n\r\n                        <div class="panel-body">\r\n                            <div class="row">\r\n                                <div class="col-lg-8 col-centered">\r\n                                    <form role="form" id="blogForm">\r\n                                        <div class="form-group">\r\n                                            <label>\u4f5c\u8005</label>\r\n                                            <input class="form-control" id="author" value="')
+        __M_writer(unicode(author))
+        __M_writer(u'">\r\n                                            <p class="help-block hide">\u4f5c\u8005\u4e0d\u80fd\u4e3a\u7a7a</p>\r\n                                        </div>\r\n\r\n                                        <div class="form-group">\r\n                                            <label>\u6807\u9898</label>\r\n                                            <input class="form-control" id="title">\r\n                                            <p class="help-block hide">\u6807\u9898\u4e0d\u80fd\u4e3a\u7a7a</p>\r\n                                        </div>\r\n                                        <div class="form-group">\r\n                                            <label>\u5185\u5bb9</label>\r\n                                            <textarea class="form-control" rows="3" id="content"></textarea>\r\n                                            <p class="help-block hide">\u5185\u5bb9\u4e0d\u80fd\u4e3a\u7a7a</p>\r\n                                        </div>\r\n\r\n                                        <input type="submit" class="form-control" value="\u4fdd\u5b58">\r\n                                     </form>\r\n                                </div>\r\n                                <!-- /.col-lg-6 (nested) -->\r\n                            </div>\r\n                            <!-- /.row (nested) -->\r\n                        </div>\r\n                        <!-- /.panel-body -->\r\n                    </div>\r\n                    <!-- /.panel -->\r\n                </div>\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n            <!-- /.row -->\r\n        </div>\r\n        <!-- /#page-wrapper -->\r\n\r\n    </div>\r\n    <!-- /#wrapper -->\r\n\r\n    ')
         __M_writer(unicode(base.footer()))
         __M_writer(u'\r\n</body>\r\n\r\n</html>\r\n')
         return ''
@@ -50,6 +53,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"32": 1, "33": 3, "34": 3, "35": 8, "36": 8, "37": 10, "38": 10, "39": 15, "40": 16, "41": 17, "42": 18, "43": 20, "44": 71, "45": 71, "51": 45, "22": 1, "25": 0}, "uri": "admin/blog.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/blog.html"}
+{"source_encoding": "utf-8", "line_map": {"33": 1, "34": 3, "35": 3, "36": 8, "37": 8, "38": 10, "39": 10, "40": 15, "41": 16, "42": 17, "43": 18, "44": 20, "45": 33, "46": 33, "47": 68, "48": 68, "22": 1, "25": 0, "54": 48}, "uri": "admin/blog.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/blog.html"}
 __M_END_METADATA
 """

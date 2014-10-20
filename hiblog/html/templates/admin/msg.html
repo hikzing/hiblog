@@ -1,0 +1,46 @@
+<%namespace name="base" file="_base.html"/>
+<%namespace name="pager" file="../_pager.html"/>
+
+${base.head()}
+
+<body>
+    <div id="wrapper">
+
+        ${base.nav()}
+        ${base.nav_side()}
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">留言墙</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            % for index, msg in enumerate(msgs):
+                % if not index & 1:
+                    <div class="row">
+                % endif
+                <div class="col-lg-6">
+                    % if msg.has_read:
+                        <div class="panel panel-default">
+                    % else:
+                        <div class="panel panel-green">
+                    % endif
+                        <div class="panel-heading">
+                            ${msg.user_mail}
+                        </div>
+                        <div class="panel-body">
+                            <p>${msg.content}</p>
+                        </div>
+                        <div class="panel-footer">
+                            ${msg.user_name} post on ${msg.post_time}
+                        </div>
+                    </div>
+                </div>
+                % if index & 1:
+                    </div>
+                % endif
+            % endfor
+        </div>
+    ${base.footer()}
+</body>

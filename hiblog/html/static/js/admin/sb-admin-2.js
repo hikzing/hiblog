@@ -26,3 +26,41 @@ $(function() {
         }
     })
 })
+
+
+$('#blogForm').submit(function() {
+
+    var url = "/admin/j/blog/save";
+    var author = $('input#author').val();
+    var title = $('input#title').val();
+    var content = $('textarea#content').val();
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType: "json",
+        data: JSON.stringify({
+            author: author,
+            title: title,
+            content: content
+        }),
+        cache: false,
+        success: function(err_data) {
+            if(err_data && err_data.err) {
+                var myhash = err_data.err;
+                for(var key in myhash) {
+                    var err_help = $('#' + key).next();
+                    err_help.removeClass('hide');
+                    err_help.text(myhash[key]);
+                }
+            }
+            else {
+                alert('保存成功');
+            }
+        }
+
+    });
+
+    return false;
+
+})

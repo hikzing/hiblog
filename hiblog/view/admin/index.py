@@ -3,7 +3,9 @@
 from _base.app import Route
 from _base.controller import AdminView, LoginView
 from _base.config import Config
-from model.blog import blog_lists, blog_count
+from _base.json_ob import JsOb
+from model.blog import blog_lists, blog_count, Blog
+from model.msg import msg_unread_list, msg_count, msg_lists
 
 
 route = Route(prefix='/admin')
@@ -12,7 +14,7 @@ route = Route(prefix='/admin')
 @route('/?')
 class Index(AdminView):
 
-    blog_limit = 1
+    blog_limit = 2
 
     def get(self):
         offset = int(self.get_argument('p', 1)) - 1
@@ -34,20 +36,36 @@ class Logout(LoginView):
 
 
 @route('/blog/edit')
-class Blog(AdminView):
+class BlogPage(AdminView):
 
     def get(self):
         is_new = self.get_arguments('new', None)
         blog_id = self.get_argument('blog_id', None)
 
-        if is_new or not blog_id:
-            return self.render()
-        else:
-            pass
+        data = JsOb()
+        blog = Blog.find_one(blog_id)
+        if is_new or not blog_id or not blog:
+            data.author = data.title = data.content = ''
+        else:  # 编辑状态
+            data.author = blog.author
+            data.title = blog.title
+            data.content = blog.content
+
+        self.render(data=data)
 
 
 @route('/msg')
 class Msg(AdminView):
 
+    msg_limit = 0
+
     def get(self):
-        pass
+
+        offset = int(self.get_argument('p', 1)) - 1
+        limit = self.msg_limit
+
+        self.render(
+            msgs=[o.msg_info_dumps for o in msg_lists(offset, limit)],
+            total=msg_count(),
+            limit=limit
+        )

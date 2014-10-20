@@ -5,6 +5,7 @@ import time
 from model.db import Doc
 from _base.json_ob import JsOb
 from model.my_markdown import turn_to_markdown
+from bson.objectid import ObjectId
 
 
 class Blog(Doc):
@@ -37,18 +38,23 @@ class Blog(Doc):
 
     @property
     def post_date(self, style="%Y-%m-%d"):
-        """返回时间戳对应的格式化值
+        """返回时间戳对应的格式化日期值
         """
-        today = (time.time() // 86400) * 86400
+        now = time.time()
+        today = (now // 86400) * 86400
         tomorow = today + 86400
-        cur = self._date
+        date = self._date
 
-        if cur is None:
+        if date is None:
             return ''
-        elif today < cur < tomorow:
-            return '%s hours ago' % (int((cur - today) // 3600))  # 发布时间在24小时内
+        elif today < date < tomorow:
+            recently = now - date
+            if 0 < recently < 3600:  # 发布时间在一小时内
+                return 'just now'
+            else:
+                return '%s hours ago' % (int((recently) // 3600))  # 发布时间在24小时内
         else:
-            return time.strftime(style, time.localtime(cur))
+            return time.strftime(style, time.localtime(date))
 
     @property
     def summarize(self):
@@ -67,10 +73,11 @@ class Blog(Doc):
             summarize=turn_to_markdown(self.summarize),
             author=self.author,
             post_date=self.post_date,
-            author_page=self.author_page or 'about',  # 文章作者默认为网站拥有者
+            author_page=self.author_page,
             slug_title=self.slug_title,
             tag=self.tags,
-            category=self.category
+            category=self.category,
+            _id=self._id
         )
 
 
@@ -109,4 +116,8 @@ def watch_new(blog):
 
 
 if __name__ == '__main__':
+    # print(Blog.find_one({'_id': ObjectId("5444c662f543d637491e7258")}).title.encode('utf-8'))
+    # print(Blog.find_one("5444c662f543d637491e7258").title.encode('utf-8'))
+    # print(Blog.find_one(dict(title="我是一个从后台管理页面创建的长标题哦"))._id)
+    # print(isinstance({'_id': "5444c662f543d637491e7258"}, basestring))
     pass

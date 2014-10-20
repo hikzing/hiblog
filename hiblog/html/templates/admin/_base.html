@@ -1,5 +1,5 @@
 <%!
-# from model.msg import msg_unread_list
+from _base.config import Config
 from model.msg import msg_unread_list
 %>
 <%def name="head()">
@@ -14,7 +14,7 @@ from model.msg import msg_unread_list
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Welcome, Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@ from model.msg import msg_unread_list
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin</a>
+                <a class="navbar-brand" href="//${Config.host}">Back To Home</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -70,7 +70,7 @@ from model.msg import msg_unread_list
                                         <div>
                                             <strong>${o.user_name}</strong>
                                             <span class="pull-right text-muted">
-                                                <em>${o.format_time}</em>
+                                                <em>${o.post_time}</em>
                                             </span>
                                         </div>
                                         <div>${o.msg_summarize}</div>

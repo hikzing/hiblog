@@ -27,28 +27,28 @@ ${base.head()}
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8 col-centered">
-                                    <form role="form">
+                                    <form role="form" id="blogForm">
                                         <div class="form-group">
-                                            <label>Text Input</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <label>作者</label>
+                                            <input class="form-control" id="author" value="${data.author}">
+                                            <p class="help-block hide">作者不能为空</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>标题</label>
+                                            <input class="form-control" value="${data.title}" id="title">
+                                            <p class="help-block hide">标题不能为空</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="Enter text">
+                                            <label>内容(支持MarkDown)</label>
+                                            <textarea class="form-control" rows="12" id="content">${data.content}</textarea>
+                                            <p class="help-block hide">内容不能为空</p>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Static Control</label>
-                                            <p class="form-control-static">email@example.com</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text area</label>
-                                            <textarea class="form-control" rows="3"></textarea>
-                                        </div>
+                                    % if this.get_argument('new', None):
+                                        <input type="submit" class="form-control" value="新建">
+                                    % else:
+                                        <input type="submit" class="form-control" value="保存">
+                                    % endif
                                      </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

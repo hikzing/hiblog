@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding:utf-8
 import _env
-from model.db import Doc, R, redis
+from _base.json_ob import JsOb
+from model.db import Doc
 from time import time, strftime, localtime
-
-
-R_UNREAD_MSG_ZSET = R.UNREAD_MSG_ZSET()
 
 
 class Msg(Doc):
@@ -13,59 +11,84 @@ class Msg(Doc):
     structure = dict(
         user_name=basestring,
         user_mail=basestring,
-        msg=basestring,
-        create_time=int
-    )
-
-    default_values = dict(
-        create_time=time(),
+        content=basestring,
+        _create_time=int,
+        has_read=bool,
     )
 
     @property
-    def format_time(self, format_="%Y-%m-%d"):
-        return strftime(format_, localtime(self.create_time))
+    def post_time(self, format_="%Y-%m-%d"):
+        return strftime(format_, localtime(self._create_time))
 
     @property
     def msg_summarize(self, length=30):
-        return '%s...' % self.msg[:length]  # TODO: may be there is a better way
+        content = str(self.content)
+        return '%s...' % content[:length] if content else ''  # TODO: may be there is a better way
+
+    @property
+    def msg_info_dumps(self):
+        o = JsOb()
+        for each in self.structure:
+            setattr(o, each, getattr(self, each))
+        o._id = self._id
+        o.post_time = self.post_time
+
+        return o
 
 
 def msg_new(user_name, user_mail, msg):
-    _time = time()
-
     o = Msg()
+
     o.user_name = user_name
     o.user_mail = user_mail
-    o.msg = msg
-    o.create_time = _time
+    o.content = msg
+    o._create_time = time()
+    o.has_read = False
+
     o.save()
 
-    redis.zadd(R_UNREAD_MSG_ZSET, _time, o._id)
+
+def msg_lists(offset=0, limit=0):
+    return Msg.find(sort=[('has_read', 1)], limit=limit, skip=offset)
 
 
-def msg_unread_list(start=0, stop=-1):
-    """ 未读消息的列表.
-
-    注意 id_list的值为文档对象的隐藏_id值
-    """
-    id_list = redis.zrange(R_UNREAD_MSG_ZSET, start, stop)
-    return [Msg.find_one(id) for id in id_list]
+def msg_unread_list(offset=0, limit=0):
+    return Msg.find(dict(has_read=False), limit=limit, skip=offset)
 
 
-def msg_unread_count():
-    return redis.zcard(R_UNREAD_MSG_ZSET)
+def msg_count():
+    return Msg.count()
 
 
 def msg_read(_id):
-    """ 消息已读. 从未读 hash 表中移除
-    """
-    redis.zrem(R_UNREAD_MSG_ZSET, _id)
+    msg = Msg.find_one(_id)
+    msg.has_read = True
+    msg.save()
 
 
 def msg_read_all():
-    """ 全部阅读
-    """
-    redis.delete(R_UNREAD_MSG_ZSET)
+    for msg in Msg.find():
+        msg.has_read = True
+        msg.save()
 
 if __name__ == '__main__':
-    pass
+    # for each in Msg.find():
+        # print(each.)
+    # l = msg_unread_list()
+    # print(Msg.find()[0].has_read)
+    # # print(l[0].msg_info_dumps)
+    # print(l)
+    Msg.remove()
+    # name = 1
+    # email = 2
+    # msg = 3
+    # msg_new(name, email, msg)
+    # print(Msg.find()[0].user_mail)
+    # print(msg_unread_list())
+    # s = msg_unread_list()[0]
+    # msg_read(s._id)
+    # print(msg_unread_list())
+    # pass
+    # print(msg_unread_list())
+    # for each in msg_unread_list():
+    #     print each.content
