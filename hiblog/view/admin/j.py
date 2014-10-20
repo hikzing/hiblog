@@ -60,7 +60,7 @@ class BlogSave(JsonErrView, JsonAdminView):
             )
             )
 
-            if hasattr(o, '_id'):
+            if o._id:
                 blog.upsert(o._id)        # 更新已有的blog
             else:
                 blog._date = time.time()  # 添加日期并新建一个b
@@ -80,3 +80,10 @@ class BlogDelete(JsonAdminView):
             except InvalidId:
                 print('Invalid Id')
         self.finish({})
+
+
+@route('/j/msg/read')
+class MsgRead(JsonAdminView):
+
+    def post(self):
+        pass

@@ -56,6 +56,10 @@ def msg_unread_list(offset=0, limit=0):
     return Msg.find(dict(has_read=False), limit=limit, skip=offset)
 
 
+def msg_unread_count():
+    return Msg.count(dict(has_read=False))
+
+
 def msg_count():
     return Msg.count()
 

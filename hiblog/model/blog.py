@@ -73,7 +73,7 @@ class Blog(Doc):
             summarize=turn_to_markdown(self.summarize),
             author=self.author,
             post_date=self.post_date,
-            author_page=self.author_page,
+            author_page=self.author_page or 'javascript:void(0)',
             slug_title=self.slug_title,
             tag=self.tags,
             category=self.category,

@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413802443.800328
+_modified_time = 1413812136.404399
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/admin/_base.html'
 _template_uri = u'admin/_base.html'
@@ -14,7 +14,7 @@ _exports = ['head', 'footer', 'nav', 'nav_side']
 
 
 from _base.config import Config
-from model.msg import msg_unread_list
+from model.msg import msg_unread_list, msg_unread_count
 
 
 def render_body(context,**pageargs):
@@ -36,7 +36,7 @@ def render_head(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
-        __M_writer(u'\n<!DOCTYPE html>\n<html lang="en">\n\n<head>\n\n    <meta charset="utf-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="description" content="">\n    <meta name="author" content="">\n\n    <title>Welcome, Admin</title>\n\n    <!-- Bootstrap Core CSS -->\n    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">\n\n    <!-- MetisMenu CSS -->\n    <link href="../../static/css/admin/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">\n\n    <!-- Timeline CSS -->\n    <link href="../../static/css/admin/plugins/timeline.css" rel="stylesheet">\n\n    <!-- Custom CSS -->\n    <link href="../../static/css/admin/sb-admin-2.css" rel="stylesheet">\n\n    <!-- Morris Charts CSS -->\n    <link href="../../static/css/admin/plugins/morris.css" rel="stylesheet">\n\n    <!-- Custom Fonts -->\n    <link href="../../static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n\n\n</head>\n\n')
+        __M_writer(u'\n\n<!DOCTYPE html>\n<html lang="en">\n\n<head>\n\n    <meta charset="utf-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="description" content="">\n    <meta name="author" content="">\n\n    <title>Admin</title>\n    <!-- Bootstrap Core CSS -->\n    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">\n\n    <!-- MetisMenu CSS -->\n    <link href="../../static/css/admin/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">\n\n    <!-- Timeline CSS -->\n    <link href="../../static/css/admin/plugins/timeline.css" rel="stylesheet">\n\n    <!-- Custom CSS -->\n    <link href="../../static/css/admin/sb-admin-2.css" rel="stylesheet">\n\n    <!-- Morris Charts CSS -->\n    <link href="../../static/css/admin/plugins/morris.css" rel="stylesheet">\n\n    <!-- Custom Fonts -->\n    <link href="../../static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n\n\n</head>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -58,7 +58,17 @@ def render_nav(context):
         __M_writer = context.writer()
         __M_writer(u'\n        <!-- Navigation -->\n        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="//')
         __M_writer(unicode(Config.host))
-        __M_writer(u'">Back To Home</a>\n            </div>\n            <!-- /.navbar-header -->\n\n            <ul class="nav navbar-top-links navbar-right">\n                <li class="dropdown">\n                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">\n                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>\n                    </a>\n                    <ul class="dropdown-menu dropdown-messages">\n                        ')
+        __M_writer(u'">Back To Home</a>\n            </div>\n            <!-- /.navbar-header -->\n\n            <ul class="nav navbar-top-links navbar-right">\n                <li class="dropdown">\n                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">\n                        <i class="fa fa-envelope fa-fw"></i>\n                        ')
+
+        count = msg_unread_count()
+                                
+        
+        __M_writer(u'\n')
+        if count:
+            __M_writer(u'                            <span> ')
+            __M_writer(unicode(count))
+            __M_writer(u' new messages</span>\n')
+        __M_writer(u'                        <i class="fa fa-caret-down"></i>\n                    </a>\n                    <ul class="dropdown-menu dropdown-messages">\n                        ')
 
         msgs = msg_unread_list()
                                 
@@ -66,7 +76,7 @@ def render_nav(context):
         __M_writer(u'\n')
         if msgs:
             for o in msgs:
-                __M_writer(u'                                <li>\n                                    <a href="#">\n                                        <div>\n                                            <strong>')
+                __M_writer(u'                                <li>\n                                    <a href="/admin/msg">\n                                        <div>\n                                            <strong>')
                 __M_writer(unicode(o.user_name))
                 __M_writer(u'</strong>\n                                            <span class="pull-right text-muted">\n                                                <em>')
                 __M_writer(unicode(o.post_time))
@@ -115,6 +125,6 @@ def render_nav_side(context,cur_path=None):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 40, "27": 117, "28": 151, "29": 171, "35": 5, "39": 5, "45": 154, "49": 154, "55": 43, "59": 43, "60": 53, "61": 53, "62": 63, "66": 65, "67": 66, "68": 67, "69": 68, "70": 71, "71": 71, "72": 73, "73": 73, "74": 76, "75": 76, "76": 80, "77": 89, "78": 90, "79": 94, "85": 119, "89": 119, "90": 123, "102": 133, "103": 135, "104": 135, "105": 138, "106": 138, "107": 141, "108": 141, "109": 144, "110": 144, "116": 110}, "uri": "admin/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 40, "27": 124, "28": 158, "29": 178, "35": 5, "39": 5, "45": 161, "49": 161, "55": 43, "59": 43, "60": 53, "61": 53, "62": 61, "66": 63, "67": 64, "68": 65, "69": 65, "70": 65, "71": 67, "72": 70, "76": 72, "77": 73, "78": 74, "79": 75, "80": 78, "81": 78, "82": 80, "83": 80, "84": 83, "85": 83, "86": 87, "87": 96, "88": 97, "89": 101, "95": 126, "99": 126, "100": 130, "112": 140, "113": 142, "114": 142, "115": 145, "116": 145, "117": 148, "118": 148, "119": 151, "120": 151, "126": 120}, "uri": "admin/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/_base.html"}
 __M_END_METADATA
 """

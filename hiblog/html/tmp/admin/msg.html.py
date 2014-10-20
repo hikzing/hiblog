@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413802926.697873
+_modified_time = 1413810842.860739
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/msg.html'
 _template_uri = 'admin/msg.html'
@@ -39,7 +39,7 @@ def render_body(context,**pageargs):
         __M_writer(u'\n\n<body>\n    <div id="wrapper">\n\n        ')
         __M_writer(unicode(base.nav()))
         __M_writer(u'\n        ')
-        __M_writer(unicode(base.nav_side()))
+        __M_writer(unicode(base.nav_side('msg')))
         __M_writer(u'\n        <div id="page-wrapper">\n            <div class="row">\n                <div class="col-lg-12">\n                    <h1 class="page-header">\u7559\u8a00\u5899</h1>\n                </div>\n                <!-- /.col-lg-12 -->\n            </div>\n            <!-- /.row -->\n')
         for index, msg in enumerate(msgs):
             if not index & 1:
