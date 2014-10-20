@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413802744.843547
+_modified_time = 1413802926.697873
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/msg.html'
 _template_uri = 'admin/msg.html'
@@ -49,15 +49,15 @@ def render_body(context,**pageargs):
                 __M_writer(u'                        <div class="panel panel-default">\n')
             else:
                 __M_writer(u'                        <div class="panel panel-green">\n')
-            __M_writer(u'                        <div class="panel-heading">\n                            ')
-            __M_writer(unicode(msg.user_mail))
-            __M_writer(u'\n                        </div>\n                        <div class="panel-body">\n                            <p>')
-            __M_writer(unicode(msg.content))
-            __M_writer(u'</p>\n                        </div>\n                        <div class="panel-footer">\n                            ')
+            __M_writer(u'                        <div class="panel-heading">\n                            <b>')
             __M_writer(unicode(msg.user_name))
-            __M_writer(u' post on ')
+            __M_writer(u'</b>\n                        </div>\n                        <div class="panel-body">\n                            <p>')
+            __M_writer(unicode(msg.content))
+            __M_writer(u'</p>\n                        </div>\n                        <div class="panel-footer">\n                            Email: <b>')
+            __M_writer(unicode(msg.user_mail))
+            __M_writer(u'</b> Post on <b>')
             __M_writer(unicode(msg.post_time))
-            __M_writer(u'\n                        </div>\n                    </div>\n                </div>\n')
+            __M_writer(u'</b>\n                        </div>\n                    </div>\n                </div>\n')
             if index & 1:
                 __M_writer(u'                    </div>\n')
         __M_writer(u'        </div>\n    ')
