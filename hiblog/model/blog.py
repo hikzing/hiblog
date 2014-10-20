@@ -116,7 +116,7 @@ def watch_new(blog):
 
 
 if __name__ == '__main__':
-    # print(Blog.find_one({'_id': ObjectId("5444c662f543d637491e7258")}).title.encode('utf-8'))
+    Blog(dict(author='lzy')).upsert("5444c662f543d637491e7258")
     # print(Blog.find_one("5444c662f543d637491e7258").title.encode('utf-8'))
     # print(Blog.find_one(dict(title="我是一个从后台管理页面创建的长标题哦"))._id)
     # print(isinstance({'_id': "5444c662f543d637491e7258"}, basestring))

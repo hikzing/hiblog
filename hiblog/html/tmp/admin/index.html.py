@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413798280.829002
+_modified_time = 1413809108.649859
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/index.html'
 _template_uri = 'admin/index.html'
@@ -61,7 +61,9 @@ def render_body(context,**pageargs):
             __M_writer(unicode(blog.summarize))
             __M_writer(u'</p>\r\n                                            </div>\r\n                                        <hr>\r\n                                        <div class="btn-group">\r\n                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">\r\n                                                    <i class="fa fa-gear"></i>  <span class="caret"></span>\r\n                                                </button>\r\n                                                <ul class="dropdown-menu" role="menu">\r\n                                                    <li><a href="/admin/blog/edit?blog_id=')
             __M_writer(unicode(blog._id))
-            __M_writer(u'">\u7f16\u8f91</a>\r\n                                                    </li>\r\n                                                    <li><a href="#">\u5220\u9664</a>\r\n                                                    </li>\r\n                                                </ul>\r\n                                            </div>\r\n                                        </div>\r\n                                    </li>\r\n')
+            __M_writer(u'">\u7f16\u8f91</a>\r\n                                                    </li>\r\n                                                    <li><a href="javascript:void(0)" onclick=\'delBlog("')
+            __M_writer(unicode(blog._id))
+            __M_writer(u'")\' >\u5220\u9664</a>\r\n                                                    </li>\r\n                                                </ul>\r\n                                            </div>\r\n                                        </div>\r\n                                    </li>\r\n')
         __M_writer(u'                        </div>\r\n                        <!-- /.panel-body -->\r\n                    </div>\r\n                    <!-- /.panel -->\r\n                ')
         __M_writer(unicode(pager.Pager(total, limit)))
         __M_writer(u'\r\n                </div>\r\n        </div>\r\n        <!-- /#page-wrapper -->\r\n\r\n    </div>\r\n    <!-- /#wrapper -->\r\n\r\n    ')
@@ -74,6 +76,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 24, "48": 25, "49": 26, "50": 27, "51": 28, "52": 30, "53": 32, "54": 32, "55": 36, "56": 36, "57": 37, "58": 37, "59": 37, "60": 37, "61": 41, "62": 41, "63": 49, "64": 49, "65": 58, "66": 62, "67": 62, "68": 70, "69": 70, "75": 69}, "uri": "admin/index.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/index.html"}
+{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 24, "48": 25, "49": 26, "50": 27, "51": 28, "52": 30, "53": 32, "54": 32, "55": 36, "56": 36, "57": 37, "58": 37, "59": 37, "60": 37, "61": 41, "62": 41, "63": 49, "64": 49, "65": 51, "66": 51, "67": 58, "68": 62, "69": 62, "70": 70, "71": 70, "77": 71}, "uri": "admin/index.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/index.html"}
 __M_END_METADATA
 """

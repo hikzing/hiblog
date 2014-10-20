@@ -44,6 +44,7 @@ ${base.head()}
                                             <textarea class="form-control" rows="12" id="content">${data.content}</textarea>
                                             <p class="help-block hide">内容不能为空</p>
                                         </div>
+                                        <input class="hide" value="${data._id}" id="blog_id">
                                     % if this.get_argument('new', None):
                                         <input type="submit" class="form-control" value="新建">
                                     % else:

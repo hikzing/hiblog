@@ -43,7 +43,7 @@ class Post(BaseView):
                 author=blog.author,
                 post_date=blog.post_date,
                 content=turn_to_markdown(blog.content),
-                author_page=blog.author_page,
+                author_page=blog.author_page or '',
             )
         else:
             return self.write('404')  # TODO

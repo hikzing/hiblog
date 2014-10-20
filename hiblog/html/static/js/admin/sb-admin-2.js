@@ -34,6 +34,7 @@ $('#blogForm').submit(function() {
     var author = $('input#author').val();
     var title = $('input#title').val();
     var content = $('textarea#content').val();
+    var _id = $('input#blog_id').val();
 
     $.ajax({
         type: "POST",
@@ -42,7 +43,8 @@ $('#blogForm').submit(function() {
         data: JSON.stringify({
             author: author,
             title: title,
-            content: content
+            content: content,
+            _id: _id
         }),
         cache: false,
         success: function(err_data) {
@@ -57,6 +59,9 @@ $('#blogForm').submit(function() {
             else {
                 alert('保存成功');
             }
+        },
+        error: function() {
+            '保存失败';
         }
 
     });
@@ -64,3 +69,21 @@ $('#blogForm').submit(function() {
     return false;
 
 })
+
+function delBlog(id) {
+    $.ajax({
+        type: 'POST',
+        url: '/admin/j/blog/rm/' + id,
+        dataType: 'JSON',
+        data: {},
+        cache: false,
+        success: function() {
+            window.location.reload()
+        },
+        error: function() {
+            alert('删除失败');
+        }
+
+    })
+    return false;
+}

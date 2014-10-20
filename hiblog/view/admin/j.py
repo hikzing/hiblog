@@ -7,7 +7,7 @@ from _base.json_ob import JsOb
 from model.re_mail import RE_MAIL
 from model.password import Password
 from model.blog import Blog
-
+from bson.objectid import InvalidId
 import time
 
 route = Route(prefix='/admin')
@@ -52,28 +52,31 @@ class BlogSave(JsonErrView, JsonAdminView):
             err.content = "请输入内容"
 
         if not err:
-            blog = Blog.find_one(dict(title=o.title), create_new=True)
 
-            blog.author = o.author
-            blog.title = o.title
-            blog.content = o.content
+            blog = Blog(dict(
+                author=o.author,
+                title=o.title,
+                content=o.content
+            )
+            )
 
-            if not blog._date:
-                blog._date = time.time()  # 只有新建blog时才更新日期
-            blog.save()
+            if hasattr(o, '_id'):
+                blog.upsert(o._id)        # 更新已有的blog
+            else:
+                blog._date = time.time()  # 添加日期并新建一个b
+                blog.save()
 
         self.render(err)
 
 
-@route('/j/blog/delete')
+@route('/j/blog/rm/(.+)')
 class BlogDelete(JsonAdminView):
 
-    def get(self):
-        self.finish()
+    def post(self, id):
 
-
-@route('/j/blog/edit')
-class BlogEdit(JsonAdminView):
-
-    def get(self):
-        self.finish()
+        if id:
+            try:
+                Blog.find_one(str(id)).delete()
+            except InvalidId:
+                print('Invalid Id')
+        self.finish({})

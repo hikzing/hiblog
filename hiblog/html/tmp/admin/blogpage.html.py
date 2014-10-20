@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413797761.963734
+_modified_time = 1413810516.905137
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/blogpage.html'
 _template_uri = 'admin/blogpage.html'
@@ -47,7 +47,9 @@ def render_body(context,**pageargs):
         __M_writer(unicode(data.title))
         __M_writer(u'" id="title">\r\n                                            <p class="help-block hide">\u6807\u9898\u4e0d\u80fd\u4e3a\u7a7a</p>\r\n                                        </div>\r\n                                        <div class="form-group">\r\n                                            <label>\u5185\u5bb9(\u652f\u6301MarkDown)</label>\r\n                                            <textarea class="form-control" rows="12" id="content">')
         __M_writer(unicode(data.content))
-        __M_writer(u'</textarea>\r\n                                            <p class="help-block hide">\u5185\u5bb9\u4e0d\u80fd\u4e3a\u7a7a</p>\r\n                                        </div>\r\n')
+        __M_writer(u'</textarea>\r\n                                            <p class="help-block hide">\u5185\u5bb9\u4e0d\u80fd\u4e3a\u7a7a</p>\r\n                                        </div>\r\n                                        <input class="hide" value="')
+        __M_writer(unicode(data._id))
+        __M_writer(u'" id="blog_id">\r\n')
         if this.get_argument('new', None):
             __M_writer(u'                                        <input type="submit" class="form-control" value="\u65b0\u5efa">\r\n')
         else:
@@ -62,6 +64,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 0, "33": 1, "34": 3, "35": 3, "36": 8, "37": 8, "38": 10, "39": 10, "40": 15, "41": 16, "42": 17, "43": 18, "44": 20, "45": 33, "46": 33, "47": 39, "48": 39, "49": 44, "50": 44, "51": 47, "52": 48, "53": 49, "54": 50, "55": 52, "56": 71, "57": 71, "63": 57}, "uri": "admin/blogpage.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/blogpage.html"}
+{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 0, "33": 1, "34": 3, "35": 3, "36": 8, "37": 8, "38": 10, "39": 10, "40": 15, "41": 16, "42": 17, "43": 18, "44": 20, "45": 33, "46": 33, "47": 39, "48": 39, "49": 44, "50": 44, "51": 47, "52": 47, "53": 48, "54": 49, "55": 50, "56": 51, "57": 53, "58": 72, "59": 72, "65": 59}, "uri": "admin/blogpage.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/blogpage.html"}
 __M_END_METADATA
 """

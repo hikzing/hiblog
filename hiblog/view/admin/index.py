@@ -45,11 +45,12 @@ class BlogPage(AdminView):
         data = JsOb()
         blog = Blog.find_one(blog_id)
         if is_new or not blog_id or not blog:
-            data.author = data.title = data.content = ''
+            data.author = data.title = data.content = data._id = ''
         else:  # 编辑状态
             data.author = blog.author
             data.title = blog.title
             data.content = blog.content
+            data._id = blog_id
 
         self.render(data=data)
 
