@@ -76,4 +76,4 @@ def msg_read_all():
         msg.save()
 
 if __name__ == '__main__':
-    print(msg_lists())
+    print(msg_lists()[0]._id))

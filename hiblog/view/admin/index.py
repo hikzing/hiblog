@@ -5,7 +5,7 @@ from _base.controller import AdminView, LoginView
 from _base.config import Config
 from _base.json_ob import JsOb
 from model.blog import blog_lists, blog_count, Blog
-from model.msg import msg_count, msg_lists
+from model.msg import msg_count, msg_lists, Msg, msg_read
 
 
 route = Route(prefix='/admin')
@@ -56,9 +56,9 @@ class BlogPage(AdminView):
 
 
 @route('/msg_wall')
-class Msg(AdminView):
+class MsgWall(AdminView):
 
-    msg_limit = 1
+    msg_limit = 0
 
     def get(self):
 
@@ -70,3 +70,14 @@ class Msg(AdminView):
             total=msg_count(),
             limit=limit
         )
+
+
+@route('/msg_wall/(\w+)')
+class MsgInfo(AdminView):
+
+    def get(self, msg_id):
+        if msg_id:
+            msg = Msg.find_one(msg_id)
+            if msg:
+                msg_read(msg_id)
+                self.render(msg=msg.msg_info_dumps)

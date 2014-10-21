@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413878176.93743
+_modified_time = 1413883321.790335
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/admin/_base.html'
 _template_uri = u'admin/_base.html'
@@ -85,8 +85,8 @@ def render_nav(context):
                 __M_writer(u'</div>\n                                    </a>\n                                </li>\n')
             __M_writer(u'\n                            <li class="divider"></li>\n                            <li>\n                                <a class="text-center" href="#">\n                                    <strong>Read All Messages</strong>\n                                    <i class="fa fa-angle-right"></i>\n                                </a>\n                            </li>\n\n')
         else:
-            __M_writer(u'                            <li>\n                                <strong class="text-center"> No Messages Receive</strong>\n                            </li>\n')
-        __M_writer(u'                    </ul>\n                    <!-- /.dropdown-messages -->\n                </li>\n                <!-- /.dropdown -->\n                <li class="dropdown">\n                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">\n                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>\n                    </a>\n                    <ul class="dropdown-menu dropdown-user">\n                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>\n                        </li>\n                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>\n                        </li>\n                    </ul>\n                    <!-- /.dropdown-user -->\n                </li>\n                <!-- /.dropdown -->\n            </ul>\n            <!-- /.navbar-top-links -->\n        </nav>\n')
+            __M_writer(u'                            <li>\n                                <strong class="text-center"> No Messages New</strong>\n                            </li>\n')
+        __M_writer(u'                    </ul>\n                    <!-- /.dropdown-messages -->\n                </li>\n                <!-- /.dropdown -->\n                <li class="dropdown">\n                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">\n                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>\n                    </a>\n                    <ul class="dropdown-menu dropdown-user">\n                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>\n                        </li>\n                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>\n                        </li>\n                    </ul>\n                    <!-- /.dropdown-user -->\n                </li>\n                <!-- /.dropdown -->\n            </ul>\n            <!-- /.navbar-top-links -->\n        </nav>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -115,7 +115,7 @@ def render_nav_side(context,cur_path=None):
         __M_writer(unicode(new_active))
         __M_writer(u'" href="/admin/blog/edit?new=True"><i class="fa fa-edit fa-fw"></i>New</a>\n                </li>\n                <li>\n                    <a class = "')
         __M_writer(unicode(msg_active))
-        __M_writer(u'" href="/admin/msg"><i class="fa  fa-table fa-fw"></i> Message</a>\n                </li>\n                 <li>\n                    <a class = "')
+        __M_writer(u'" href="/admin/msg_wall"><i class="fa  fa-table fa-fw"></i> Message</a>\n                </li>\n                 <li>\n                    <a class = "')
         __M_writer(unicode(setting_active))
         __M_writer(u'" href="/admin/setting"><i class="fa fa-facebook fa-fw"></i> Setting</a>\n                </li>\n            </ul>\n        </div>\n        <!-- /.sidebar-collapse -->\n    </div>\n    <!-- /.navbar-static-side -->\n')
         return ''

@@ -95,7 +95,7 @@ from model.msg import msg_unread_list, msg_unread_count
 
                         % else:
                             <li>
-                                <strong class="text-center"> No Messages Receive</strong>
+                                <strong class="text-center"> No Messages New</strong>
                             </li>
                         % endif
                     </ul>
@@ -112,7 +112,7 @@ from model.msg import msg_unread_list, msg_unread_count
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -145,7 +145,7 @@ from model.msg import msg_unread_list, msg_unread_count
                     <a class = "${new_active}" href="/admin/blog/edit?new=True"><i class="fa fa-edit fa-fw"></i>New</a>
                 </li>
                 <li>
-                    <a class = "${msg_active}" href="/admin/msg"><i class="fa  fa-table fa-fw"></i> Message</a>
+                    <a class = "${msg_active}" href="/admin/msg_wall"><i class="fa  fa-table fa-fw"></i> Message</a>
                 </li>
                  <li>
                     <a class = "${setting_active}" href="/admin/setting"><i class="fa fa-facebook fa-fw"></i> Setting</a>
