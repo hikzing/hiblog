@@ -7,7 +7,7 @@
         now = int(this.get_argument("p", 1))
         _next = _pre = ''
 
-        if now * limit < total:
+        if limit != 0 and now * limit < total:
             _next = template % (now + 1)
 
         if now > 1:

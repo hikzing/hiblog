@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413812136.404399
+_modified_time = 1413878176.93743
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/admin/_base.html'
 _template_uri = u'admin/_base.html'
@@ -76,7 +76,7 @@ def render_nav(context):
         __M_writer(u'\n')
         if msgs:
             for o in msgs:
-                __M_writer(u'                                <li>\n                                    <a href="/admin/msg">\n                                        <div>\n                                            <strong>')
+                __M_writer(u'                                <li>\n                                    <a href="/admin/msg_wall">\n                                        <div>\n                                            <strong>')
                 __M_writer(unicode(o.user_name))
                 __M_writer(u'</strong>\n                                            <span class="pull-right text-muted">\n                                                <em>')
                 __M_writer(unicode(o.post_time))

@@ -4,10 +4,10 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413636578.84267
+_modified_time = 1413881613.609133
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/_pager.html'
-_template_uri = u'/_pager.html'
+_template_uri = u'admin/../_pager.html'
 _source_encoding = 'utf-8'
 _exports = ['Pager']
 
@@ -37,7 +37,7 @@ def render_Pager(context,total,limit):
         now = int(this.get_argument("p", 1))
         _next = _pre = ''
         
-        if now * limit < total:
+        if limit != 0 and now * limit < total:
             _next = template % (now + 1)
         
         if now > 1:
@@ -62,6 +62,6 @@ def render_Pager(context,total,limit):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"33": 2, "34": 4, "63": 57, "57": 28, "15": 0, "48": 16, "49": 18, "50": 19, "51": 20, "20": 1, "21": 30, "54": 24, "55": 25, "56": 25, "52": 20, "27": 2, "53": 23}, "uri": "/_pager.html", "filename": "/web/kzing.net/hiblog/html/templates/_pager.html"}
+{"source_encoding": "utf-8", "line_map": {"33": 2, "34": 4, "63": 57, "57": 28, "15": 0, "48": 16, "49": 18, "50": 19, "51": 20, "20": 1, "21": 30, "54": 24, "55": 25, "56": 25, "52": 20, "27": 2, "53": 23}, "uri": "admin/../_pager.html", "filename": "/web/kzing.net/hiblog/html/templates/_pager.html"}
 __M_END_METADATA
 """

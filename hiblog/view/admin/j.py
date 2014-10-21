@@ -7,6 +7,8 @@ from _base.json_ob import JsOb
 from model.re_mail import RE_MAIL
 from model.password import Password
 from model.blog import Blog
+from model.msg import msg_read
+
 from bson.objectid import InvalidId
 import time
 
@@ -86,4 +88,9 @@ class BlogDelete(JsonAdminView):
 class MsgRead(JsonAdminView):
 
     def post(self):
-        pass
+
+        id = self.json._id
+        if id:
+            msg_read(id)
+
+        self.finish({})

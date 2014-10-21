@@ -76,23 +76,4 @@ def msg_read_all():
         msg.save()
 
 if __name__ == '__main__':
-    # for each in Msg.find():
-        # print(each.)
-    # l = msg_unread_list()
-    # print(Msg.find()[0].has_read)
-    # # print(l[0].msg_info_dumps)
-    # print(l)
-    Msg.remove()
-    # name = 1
-    # email = 2
-    # msg = 3
-    # msg_new(name, email, msg)
-    # print(Msg.find()[0].user_mail)
-    # print(msg_unread_list())
-    # s = msg_unread_list()[0]
-    # msg_read(s._id)
-    # print(msg_unread_list())
-    # pass
-    # print(msg_unread_list())
-    # for each in msg_unread_list():
-    #     print each.content
+    print(msg_lists())

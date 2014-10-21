@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413810842.860739
+_modified_time = 1413878344.49129
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/msg.html'
 _template_uri = 'admin/msg.html'
@@ -29,9 +29,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        base = _mako_get_namespace(context, 'base')
         msgs = context.get('msgs', UNDEFINED)
+        base = _mako_get_namespace(context, 'base')
+        limit = context.get('limit', UNDEFINED)
         enumerate = context.get('enumerate', UNDEFINED)
+        total = context.get('total', UNDEFINED)
+        pager = _mako_get_namespace(context, 'pager')
         __M_writer = context.writer()
         __M_writer(u'\n')
         __M_writer(u'\n\n')
@@ -60,7 +63,9 @@ def render_body(context,**pageargs):
             __M_writer(u'</b>\n                        </div>\n                    </div>\n                </div>\n')
             if index & 1:
                 __M_writer(u'                    </div>\n')
-        __M_writer(u'        </div>\n    ')
+        __M_writer(u'        </div>\n        ')
+        __M_writer(unicode(pager.Pager(total, limit)))
+        __M_writer(u'\n    ')
         __M_writer(unicode(base.footer()))
         __M_writer(u'\n</body>\n')
         return ''
@@ -70,6 +75,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "36": 1, "37": 2, "38": 4, "39": 4, "40": 9, "41": 9, "42": 10, "43": 10, "44": 19, "45": 20, "46": 21, "47": 23, "48": 24, "49": 25, "50": 26, "51": 27, "52": 29, "53": 30, "54": 30, "55": 33, "56": 33, "57": 36, "58": 36, "59": 36, "60": 36, "61": 40, "62": 41, "63": 44, "64": 45, "65": 45, "71": 65}, "uri": "admin/msg.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/msg.html"}
+{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 19, "48": 20, "49": 21, "50": 23, "51": 24, "52": 25, "53": 26, "54": 27, "55": 29, "56": 30, "57": 30, "58": 33, "59": 33, "60": 36, "61": 36, "62": 36, "63": 36, "64": 40, "65": 41, "66": 44, "67": 45, "68": 45, "69": 46, "70": 46, "76": 70}, "uri": "admin/msg.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/msg.html"}
 __M_END_METADATA
 """

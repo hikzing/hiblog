@@ -4,9 +4,9 @@ import _env
 from _base.app import Route
 from _base.controller import BaseView
 from _base.config import Config, Prepare
-from _base.json_ob import JsOb
 from model.blog import blog_lists, blog_by_slug_name, blog_count
 from model.my_markdown import turn_to_markdown
+from tornado.web import HTTPError
 
 
 route = Route()
@@ -46,7 +46,7 @@ class Post(BaseView):
                 author_page=blog.author_page or '',
             )
         else:
-            return self.write('404')  # TODO
+            raise HTTPError(404)
 
 
 @route('/about')
@@ -76,20 +76,6 @@ class Contact(BaseView):
             contact_msg=Prepare.contact_msg
         )
 
-# @route('/category')
-# class Category(BaseView):
 
-#     def get(self):
-#         self.render()
-
-
-# @route('/tag')
-# class Tag(BaseView):
-
-#     def get(self):
-#         self.render()
-
-
-
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    pass
