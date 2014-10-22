@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413636039.883836
+_modified_time = 1413969408.984805
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/_base.html'
 _template_uri = u'/_base.html'
@@ -56,8 +56,16 @@ def render_disqus(context):
 def render_nav(context):
     __M_caller = context.caller_stack._push_frame()
     try:
+        this = context.get('this', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer(u'\n\n    <!-- Navigation -->\n    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">\n        <div class="container-fluid">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class="navbar-header page-scroll">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="/admin">HiAdmin</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n                <ul class="nav navbar-nav navbar-right">\n                    <li>\n                        <a href="//')
+        __M_writer(u'\n\n    <!-- Navigation -->\n    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">\n        <div class="container-fluid">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class="navbar-header page-scroll">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n')
+        if not this.current_user:
+            __M_writer(u'                    <a class="navbar-brand" href="/admin">Admin Login</a>\n')
+        else:
+            __M_writer(u'                    <a class="navbar-brand" href="/admin">')
+            __M_writer(unicode(this.current_user.split('@', 1)[0]))
+            __M_writer(u'</a>\n')
+        __M_writer(u'            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n                <ul class="nav navbar-nav navbar-right">\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
         __M_writer(u'">Home</a>\n                    </li>\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
@@ -77,7 +85,7 @@ def render_footer(context):
         __M_writer = context.writer()
         __M_writer(u'\n    <!-- Footer -->\n    <footer>\n        <div class="container">\n            <div class="row">\n                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">\n                    <ul class="list-inline text-center">\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                    </ul>\n                    <p class="copyright text-muted">Copyright &copy; ')
         __M_writer(unicode(Prepare.name))
-        __M_writer(u'</p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src="../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../static/js/bootstrap.min.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../static/js/clean-blog.js"></script>\n\n    <!-- Highlight code -->\n    <script src="../static/js/highlight.pack.js"></script>\n    <script >hljs.initHighlightingOnLoad();</script>\n\n')
+        __M_writer(u' Powered by <a href="https://github.com/Kzinglzy/hiblog">HiBlog</a></p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src="../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../static/js/bootstrap.min.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../static/js/clean-blog.js"></script>\n\n    <!-- Highlight code -->\n    <script src="../static/js/highlight.pack.js"></script>\n    <script >hljs.initHighlightingOnLoad();</script>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -85,6 +93,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 71, "27": 125, "28": 144, "34": 5, "38": 5, "39": 18, "40": 18, "46": 127, "50": 127, "56": 34, "60": 34, "61": 54, "62": 54, "63": 57, "64": 57, "65": 60, "66": 60, "67": 63, "68": 63, "74": 74, "78": 74, "79": 106, "80": 106, "86": 80}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 75, "27": 129, "28": 148, "34": 5, "38": 5, "39": 18, "40": 18, "46": 131, "50": 131, "56": 34, "61": 34, "62": 47, "63": 48, "64": 49, "65": 50, "66": 50, "67": 50, "68": 52, "69": 58, "70": 58, "71": 61, "72": 61, "73": 64, "74": 64, "75": 67, "76": 67, "82": 78, "86": 78, "87": 110, "88": 110, "94": 88}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """

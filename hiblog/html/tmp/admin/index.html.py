@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413883243.461674
+_modified_time = 1413968093.218512
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/index.html'
 _template_uri = 'admin/index.html'
@@ -43,15 +43,13 @@ def render_body(context,**pageargs):
         __M_writer(unicode(base.nav()))
         __M_writer(u'\r\n        ')
         __M_writer(unicode(base.nav_side()))
-        __M_writer(u'\r\n        <div id="page-wrapper">\r\n            <div class="row">\r\n                <div class="col-lg-12">\r\n                    <h1 class="page-header">\u6700\u8fd1\u66f4\u65b0</h1>\r\n                </div>\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n                    <!-- /.panel -->\r\n                    <div class="panel panel-default">\r\n\r\n                        <!-- /.panel-heading -->\r\n                        <div class="panel-body">\r\n                            <ul class="timeline">\r\n')
+        __M_writer(u'\r\n        <div id="page-wrapper">\r\n            <div class="row">\r\n                <div class="col-lg-12">\r\n                    <h1 class="page-header">Blog TimeLine</h1>\r\n                </div>\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n                    <!-- /.panel -->\r\n                    <div class="panel panel-default">\r\n\r\n                        <!-- /.panel-heading -->\r\n                        <div class="panel-body">\r\n                            <ul class="timeline">\r\n')
         for index, blog in enumerate(blogs):
             if index & 1:
                 __M_writer(u'                                        <li class="timeline-inverted">\r\n')
             else:
                 __M_writer(u'                                        <li>\r\n')
-            __M_writer(u'                                        <div class="timeline-badge">\r\n                                        <!-- <i classs=></i> -->\r\n                                        <span>')
-            __M_writer(unicode(index))
-            __M_writer(u'</span>\r\n                                        </div>\r\n                                        <div class="timeline-panel">\r\n                                            <div class="timeline-heading">\r\n                                                <h4 class="timeline-title">')
+            __M_writer(u'                                        <div class="timeline-badge info">\r\n                                        </div>\r\n                                        <div class="timeline-panel">\r\n                                            <div class="timeline-heading">\r\n                                                <h4 class="timeline-title">')
             __M_writer(unicode(blog.title))
             __M_writer(u'</h4>\r\n                                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> ')
             __M_writer(unicode(blog.post_date))
@@ -76,6 +74,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 24, "48": 25, "49": 26, "50": 27, "51": 28, "52": 30, "53": 32, "54": 32, "55": 36, "56": 36, "57": 37, "58": 37, "59": 37, "60": 37, "61": 41, "62": 41, "63": 49, "64": 49, "65": 51, "66": 51, "67": 58, "68": 62, "69": 62, "70": 70, "71": 70, "77": 71}, "uri": "admin/index.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/index.html"}
+{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 24, "48": 25, "49": 26, "50": 27, "51": 28, "52": 30, "53": 34, "54": 34, "55": 35, "56": 35, "57": 35, "58": 35, "59": 39, "60": 39, "61": 47, "62": 47, "63": 49, "64": 49, "65": 56, "66": 60, "67": 60, "68": 68, "69": 68, "75": 69}, "uri": "admin/index.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/index.html"}
 __M_END_METADATA
 """

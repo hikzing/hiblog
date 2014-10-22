@@ -70,10 +70,9 @@ def msg_read(_id):
     msg.save()
 
 
-def msg_read_all():
-    for msg in Msg.find():
-        msg.has_read = True
-        msg.save()
+def msg_rm(_id):
+    Msg.find_one(_id).delete()
+
 
 if __name__ == '__main__':
-    print(msg_lists()[0]._id))
+    print(msg_lists()[0]._id)

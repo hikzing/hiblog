@@ -95,7 +95,10 @@ from model.msg import msg_unread_list, msg_unread_count
 
                         % else:
                             <li>
-                                <strong class="text-center"> No Messages New</strong>
+                                <a class="text-center" href="javascript:void(0)">
+                                    <strong> No Messages New</strong>
+                                </a>
+
                             </li>
                         % endif
                     </ul>
@@ -107,11 +110,6 @@ from model.msg import msg_unread_list, msg_unread_count
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
                         <li><a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -135,20 +133,15 @@ from model.msg import msg_unread_list, msg_unread_count
                         new_active = "active"
                     elif cur_path == "msg":
                         msg_active = "active"
-                    elif cur_path == "setting":
-                        setting_active = "active"
                 %>
                 <li>
-                    <a class="${timeline_active}" href="/admin"><i class="fa fa-dashboard fa-fw"></i>Timeline</a>
+                    <a class="${timeline_active}" href="/admin"><i class="fa fa-dashboard fa-fw"></i>All Blogs</a>
                 </li>
                 <li>
-                    <a class = "${new_active}" href="/admin/blog/edit?new=True"><i class="fa fa-edit fa-fw"></i>New</a>
+                    <a class = "${new_active}" href="/admin/blog/edit?new=True"><i class="fa fa-edit fa-fw"></i>Blog New</a>
                 </li>
                 <li>
-                    <a class = "${msg_active}" href="/admin/msg_wall"><i class="fa  fa-table fa-fw"></i> Message</a>
-                </li>
-                 <li>
-                    <a class = "${setting_active}" href="/admin/setting"><i class="fa fa-facebook fa-fw"></i> Setting</a>
+                    <a class = "${msg_active}" href="/admin/msg_wall"><i class="fa  fa-envelope"></i> Message</a>
                 </li>
             </ul>
         </div>

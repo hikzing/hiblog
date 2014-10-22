@@ -1,0 +1,45 @@
+<%!
+    from model.my_markdown import turn_to_markdown
+%>
+<%namespace name="base" file="_base.html"/>
+
+${base.head()}
+
+<body>
+    <div id="wrapper">
+
+        ${base.nav()}
+        ${base.nav_side('msg')}
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header text-center">
+                        <b>${msg.user_mail}</b> post on <b>${msg.post_time}</b>
+                    </h2>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                        <div class="jumbotron">
+                            <h2>${msg.user_name}</h2>
+                            <hr>
+                            <p>${turn_to_markdown(msg.content)}</p>
+                        </div>
+                        <p class="text-center">
+                            <a class="btn btn-info" role="button" onclick='MsgAction("${msg._id}", "READ")'>
+                                Read
+                                <i class="fa fa-check"></i>
+                            </a>
+                            <a class="btn btn-danger    " role="button" onclick='MsgAction("${msg._id}", "DEL")'>
+                                Delete
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </p>
+                </div>
+            </div>
+    </div>
+    ${base.footer()}
+</body>

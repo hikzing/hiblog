@@ -14,7 +14,7 @@ route = Route(prefix='/admin')
 @route('/?')
 class Index(AdminView):
 
-    blog_limit = 2
+    blog_limit = 5
 
     def get(self):
         offset = int(self.get_argument('p', 1)) - 1
@@ -58,7 +58,7 @@ class BlogPage(AdminView):
 @route('/msg_wall')
 class MsgWall(AdminView):
 
-    msg_limit = 0
+    msg_limit = 8
 
     def get(self):
 
@@ -79,5 +79,4 @@ class MsgInfo(AdminView):
         if msg_id:
             msg = Msg.find_one(msg_id)
             if msg:
-                msg_read(msg_id)
                 self.render(msg=msg.msg_info_dumps)

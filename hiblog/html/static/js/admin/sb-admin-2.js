@@ -59,6 +59,29 @@ function delBlog(id) {
     return false;
 }
 
+function MsgAction(id, type) {
+    var url;
+    if(type == "DEL")
+        url = '/admin/j/msg/del/' + id;
+    else if(type == "READ")
+        url = '/admin/j/msg/read/' + id;
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        dataType: 'JSON',
+        data: {},
+        cache: false,
+        success: function() {
+            document.location.href="/admin/msg_wall"
+        },
+        error: function() {
+            alert('删除失败');
+        }
+
+    })
+}
+
 $(function() {
 
     $('#side-menu').metisMenu();

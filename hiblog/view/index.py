@@ -15,7 +15,7 @@ route = Route()
 @route('/')
 class Index(BaseView):
 
-    blog_limit = 2  # 主页展示的文章数量
+    blog_limit = 8  # 主页展示的文章数量
 
     def get(self):
         offset = int(self.get_argument('p', 1)) - 1

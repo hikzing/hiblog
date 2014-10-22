@@ -77,7 +77,8 @@ class Blog(Doc):
             slug_title=self.slug_title,
             tag=self.tags,
             category=self.category,
-            _id=self._id
+            _id=self._id,
+            watch=self.watch or 0
         )
 
 

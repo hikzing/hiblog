@@ -7,7 +7,7 @@ from _base.json_ob import JsOb
 from model.re_mail import RE_MAIL
 from model.password import Password
 from model.blog import Blog
-from model.msg import msg_read
+from model.msg import msg_read, msg_rm
 
 from bson.objectid import InvalidId
 import time
@@ -59,7 +59,7 @@ class BlogSave(JsonErrView, JsonAdminView):
                 author=o.author,
                 title=o.title,
                 content=o.content
-            )
+                )
             )
 
             if o._id:
@@ -71,26 +71,34 @@ class BlogSave(JsonErrView, JsonAdminView):
         self.render(err)
 
 
-@route('/j/blog/rm/(.+)')
+@route('/j/blog/rm/(\w+)')
 class BlogDelete(JsonAdminView):
 
     def post(self, id):
 
         if id:
-            try:
-                Blog.find_one(str(id)).delete()
-            except InvalidId:
-                print('Invalid Id')
+            Blog.find_one(str(id)).delete()
+
         self.finish({})
 
 
-@route('/j/msg/read')
+@route('/j/msg/read/(\w+)')
 class MsgRead(JsonAdminView):
 
-    def post(self):
+    def post(self, id):
 
-        id = self.json._id
         if id:
             msg_read(id)
+
+        self.finish({})
+
+
+@route('/j/msg/del/(\w+)')
+class MsgDel(JsonAdminView):
+
+    def post(self, id):
+
+        if id:
+            msg_rm(id)
 
         self.finish({})
