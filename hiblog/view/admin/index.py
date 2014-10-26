@@ -5,7 +5,7 @@ from _base.controller import AdminView, LoginView
 from _base.config import Config
 from _base.json_ob import JsOb
 from model.blog import blog_lists, blog_count, Blog
-from model.msg import msg_count, msg_lists, Msg, msg_read
+from model.msg import msg_count, msg_lists, Msg
 
 
 route = Route(prefix='/admin')

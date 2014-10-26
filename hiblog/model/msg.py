@@ -22,8 +22,9 @@ class Msg(Doc):
 
     @property
     def msg_summarize(self, length=30):
+        # TODO: may be there is a better way
         content = str(self.content)
-        return '%s...' % content[:length] if content else ''  # TODO: may be there is a better way
+        return '%s...' % content[:length] if content else ''
 
     @property
     def msg_info_dumps(self):

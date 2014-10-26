@@ -10,13 +10,13 @@ from model.my_markdown import turn_to_markdown
 class Blog(Doc):
 
     structure = dict(
-        author=basestring,      # 作者
-        title=basestring,       # 标题
-        content=basestring,     # 正文
-        category=basestring,    # 分类
-        tags=[basestring],      # 标签
-        _date=float,            # 发布日期
-        watch=int,              # 查看数
+        author=basestring,       # 作者
+        title=basestring,        # 标题
+        content=basestring,      # 正文
+        category=basestring,     # 分类
+        tags=[basestring],       # 标签
+        _date=float,             # 发布日期
+        watch=int,               # 查看数
         author_page=basestring,  # 作者主页
     )
 

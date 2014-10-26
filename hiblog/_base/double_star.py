@@ -16,8 +16,8 @@ class Star:
     """
 
     def keys(self):
-        _dict = self.__class__.__dict__
-        return [attr for attr in _dict if not attr.startswith('__')]
+        return [attr for attr in self.__class__.__dict__
+                if not attr.startswith('__')]
 
     def __getitem__(self, key):
         return self.__class__.__dict__[key]

@@ -8,7 +8,6 @@ from model.password import Password
 from model.blog import Blog
 from model.msg import msg_read, msg_rm
 
-from bson.objectid import InvalidId
 import time
 
 route = Route(prefix='/admin')

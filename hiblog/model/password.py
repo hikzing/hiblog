@@ -56,4 +56,3 @@ if __name__ == '__main__':
     # print(Password.verify('kzing@gmail.com', '12345678'))
     # Password.remove()
     pass
-
