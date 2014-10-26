@@ -4,6 +4,7 @@ import _env
 from _base.app import Route
 from _base.controller import BaseView
 from _base.config import Config
+from _base.setting import HOME_PAGE_LIMIT
 from model.blog import blog_lists, blog_by_slug_name, blog_count
 from model.my_markdown import turn_to_markdown
 from tornado.web import HTTPError
@@ -15,11 +16,9 @@ route = Route()
 @route('/')
 class Index(BaseView):
 
-    blog_limit = 8  # 主页展示的文章数量
-
     def get(self):
         offset = int(self.get_argument('p', 1)) - 1
-        limit = self.blog_limit
+        limit = HOME_PAGE_LIMIT
 
         return self.render(
             blogs=[o.detail_dumps for o in blog_lists(offset * limit, limit)],

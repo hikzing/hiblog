@@ -3,6 +3,7 @@
 from _base.app import Route
 from _base.controller import AdminView, LoginView
 from _base.config import Config
+from _base.setting improt ADMIN_PAGE_LIMIT
 from _base.json_ob import JsOb
 from model.blog import blog_lists, blog_count, Blog
 from model.msg import msg_count, msg_lists, Msg
@@ -14,11 +15,9 @@ route = Route(prefix='/admin')
 @route('/?')
 class Index(AdminView):
 
-    blog_limit = 5
-
     def get(self):
         offset = int(self.get_argument('p', 1)) - 1
-        limit = self.blog_limit
+        limit = ADMIN_PAGE_LIMIT
 
         self.render(
             blogs=[o.detail_dumps for o in blog_lists(offset * limit, limit)],
