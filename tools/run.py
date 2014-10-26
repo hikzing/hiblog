@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding:utf-8
-
+import _env
 import tornado.web
 import tornado.ioloop
 from tornado.options import define, options

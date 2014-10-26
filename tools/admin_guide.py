@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #coding:utf-8
-
+import _env
 from hiblog.model.password import Password
 from hiblog.model.re_mail import RE_MAIL
 from hiblog.model.admin import is_admin, admin_new

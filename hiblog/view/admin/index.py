@@ -3,7 +3,7 @@
 from _base.app import Route
 from _base.controller import AdminView, LoginView
 from _base.config import Config
-from _base.setting improt ADMIN_PAGE_LIMIT
+from _base.setting import ADMIN_PAGE_LIMIT
 from _base.json_ob import JsOb
 from model.blog import blog_lists, blog_count, Blog
 from model.msg import msg_count, msg_lists, Msg

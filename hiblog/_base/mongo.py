@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
-"""
-mongokit 的使用方式过于麻烦.因此重构了一些实现和方法.
+"""mongokit 的使用方式过于麻烦.因此重构了一些实现和方法.
 不需要在为每个Document填写使用的数据库名, 集合名.
-如: 重构前需要db.collections.
 """
 
 from _base.config import Config
