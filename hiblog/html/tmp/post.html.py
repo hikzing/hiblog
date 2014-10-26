@@ -4,10 +4,10 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1411996200.79252
+_modified_time = 1414308573.121979
 _enable_loop = True
-_template_filename = '/web/kzing.net/html/templates/post.html'
-_template_uri = 'post.html'
+_template_filename = '/web/kzing.net/hiblog/html/templates/post.html'
+_template_uri = '/post.html'
 _source_encoding = 'utf-8'
 _exports = []
 
@@ -28,14 +28,13 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         content = context.get('content', UNDEFINED)
         author = context.get('author', UNDEFINED)
-        title = context.get('title', UNDEFINED)
         author_page = context.get('author_page', UNDEFINED)
         post_date = context.get('post_date', UNDEFINED)
         base = _mako_get_namespace(context, 'base')
         blog_title = context.get('blog_title', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\r\n\r\n')
-        __M_writer(unicode(base.head(title)))
+        __M_writer(unicode(base.head()))
         __M_writer(u'\r\n\r\n<body>\r\n\r\n    ')
         __M_writer(unicode(base.nav()))
         __M_writer(u'\r\n\r\n    <!-- Page Header -->\r\n    <!-- Set your background image for this header on the line below. -->\r\n    <header class="intro-header" style="background-image: url(\'../static/img/post-bg.jpg\')">\r\n        <div class="container">\r\n            <div class="row">\r\n                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">\r\n                    <div class="post-heading">\r\n                        <h1>')
@@ -60,6 +59,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 0, "37": 1, "38": 3, "39": 3, "40": 7, "41": 7, "42": 16, "43": 16, "44": 18, "45": 18, "46": 18, "47": 18, "48": 18, "49": 18, "50": 30, "51": 30, "52": 31, "53": 31, "54": 41, "55": 41, "61": 55}, "uri": "post.html", "filename": "/web/kzing.net/html/templates/post.html"}
+{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 0, "36": 1, "37": 3, "38": 3, "39": 7, "40": 7, "41": 16, "42": 16, "43": 18, "44": 18, "45": 18, "46": 18, "47": 18, "48": 18, "49": 30, "50": 30, "51": 31, "52": 31, "53": 41, "54": 41, "60": 54}, "uri": "/post.html", "filename": "/web/kzing.net/hiblog/html/templates/post.html"}
 __M_END_METADATA
 """

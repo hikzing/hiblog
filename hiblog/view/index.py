@@ -3,7 +3,7 @@
 import _env
 from _base.app import Route
 from _base.controller import BaseView
-from _base.config import Config, Prepare
+from _base.config import Config
 from model.blog import blog_lists, blog_by_slug_name, blog_count
 from model.my_markdown import turn_to_markdown
 from tornado.web import HTTPError
@@ -22,8 +22,6 @@ class Index(BaseView):
         limit = self.blog_limit
 
         return self.render(
-            home_title=Prepare.name,      # 主页的标题
-            home_desc=Prepare.desc,       # 主页描述
             blogs=[o.detail_dumps for o in blog_lists(offset * limit, limit)],
             total=blog_count(),           # 分页用: blog的总数.
             limit=limit                   # 分页用: 每页的显示数.
@@ -53,10 +51,7 @@ class Post(BaseView):
 class About(BaseView):
 
     def get(self):
-        return self.render(
-            title=Prepare.about_title,
-            # TODO
-        )
+        return self.render()
 
 
 @route('/about/me')
@@ -70,11 +65,7 @@ class Resume(BaseView):
 class Contact(BaseView):
 
     def get(self):
-        return self.render(
-            contact_title=Prepare.contact_title,
-            contact_desc=Prepare.contact_desc,
-            contact_msg=Prepare.contact_msg
-        )
+        return self.render()
 
 
 if __name__ == '__main__':

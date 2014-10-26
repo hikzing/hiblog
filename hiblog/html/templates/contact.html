@@ -1,7 +1,11 @@
+<%!
+from _base.setting import CONTACT_TITLE, CONTACT_DESC, CONTACT_CONTENT
+%>
+
 <%namespace name="base" file="_base.html"/>
 
 
-${base.head('kzing.net | Home')}
+${base.head()}
 
 
 <body>
@@ -15,9 +19,9 @@ ${base.head('kzing.net | Home')}
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="page-heading">
-                        <h1>${contact_title}</h1>
+                        <h1>${CONTACT_TITLE}</h1>
                         <hr class="small">
-                        <span class="subheading">${contact_desc}</span>
+                        <span class="subheading">${CONTACT_DESC}</span>
                     </div>
                 </div>
             </div>
@@ -28,7 +32,7 @@ ${base.head('kzing.net | Home')}
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>${contact_msg}</p>
+                <p>${CONTACT_CONTENT}</p>
                 <form name="sentMessage" id="contactForm" novalidate>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">

@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-import _env
-
 from _base.mako_render import mako_render
 from model.session import Session
 from model.admin import is_admin

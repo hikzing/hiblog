@@ -73,7 +73,7 @@ from model.msg import msg_unread_list, msg_unread_count
                         % if msgs:
                             % for o in msgs:
                                 <li>
-                                    <a href="/admin/msg_wall">
+                                    <a href="/admin/msg_wall/${o._id}">
                                         <div>
                                             <strong>${o.user_name}</strong>
                                             <span class="pull-right text-muted">
@@ -87,7 +87,7 @@ from model.msg import msg_unread_list, msg_unread_count
 
                             <li class="divider"></li>
                             <li>
-                                <a class="text-center" href="#">
+                                <a class="text-center" href="/admin/msg_wall">
                                     <strong>Read All Messages</strong>
                                     <i class="fa fa-angle-right"></i>
                                 </a>

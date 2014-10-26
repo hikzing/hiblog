@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1414237160.638816
+_modified_time = 1414309740.784525
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/_base.html'
 _template_uri = u'/_base.html'
@@ -13,7 +13,8 @@ _exports = ['head', 'disqus', 'nav', 'footer']
 
 
 
-from _base.config import Config, Prepare
+from _base.setting import HOME_TITLE, COPYRIGHT
+from _base.config import Config
 
 
 def render_body(context,**pageargs):
@@ -31,12 +32,12 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_head(context,title):
+def render_head(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
         __M_writer(u'\n\n<!DOCTYPE html>\n<html lang="en">\n\n<head>\n\n    <meta charset="utf-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="description" content="">\n    <meta name="author" content="">\n\n    <title>')
-        __M_writer(unicode(title))
+        __M_writer(unicode(HOME_TITLE))
         __M_writer(u'</title>\n\n    <!-- Bootstrap Core CSS -->\n    <link href="../static/css/bootstrap.min.css" rel="stylesheet">\n\n    <!-- Custom CSS -->\n    <link href="../static/css/clean-blog.css" rel="stylesheet">\n\n    <!-- For highlight code -->\n    <!-- <link rel="stylesheet" href="../static/css/github.css"/> -->\n    <link rel="stylesheet" href="../static/css/tomorrow.css"/>\n\n</head>\n')
         return ''
     finally:
@@ -84,8 +85,8 @@ def render_footer(context):
     try:
         __M_writer = context.writer()
         __M_writer(u'\n    <!-- Footer -->\n    <footer>\n        <div class="container">\n            <div class="row">\n                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">\n                    <ul class="list-inline text-center">\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href="#">\n                                <span class="fa-stack fa-lg">\n                                    <i class="fa fa-circle fa-stack-2x"></i>\n                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>\n                                </span>\n                            </a>\n                        </li>\n                    </ul>\n                    <p class="copyright text-muted">Copyright &copy; ')
-        __M_writer(unicode(Prepare.name))
-        __M_writer(u' Powered by <a href="https://github.com/Kzinglzy/hiblog">HiBlog</a></p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src="../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../static/js/bootstrap.min.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../static/js/clean-blog.js"></script>\n\n    <!-- Highlight code -->\n    <script src="../static/js/highlight.pack.js"></script>\n    <script >hljs.initHighlightingOnLoad();</script>\n\n')
+        __M_writer(unicode(COPYRIGHT))
+        __M_writer(u' | Powered by <a href="https://github.com/Kzinglzy/hiblog">HiBlog</a></p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src="../static/js/jquery.min.js"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src="../static/js/bootstrap.min.js"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src="../static/js/clean-blog.js"></script>\n\n    <!-- Highlight code -->\n    <script src="../static/js/highlight.pack.js"></script>\n    <script >hljs.initHighlightingOnLoad();</script>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -93,6 +94,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "19": 0, "24": 3, "25": 31, "26": 75, "27": 129, "28": 148, "34": 5, "38": 5, "39": 18, "40": 18, "46": 131, "50": 131, "56": 34, "61": 34, "62": 47, "63": 48, "64": 49, "65": 50, "66": 50, "67": 50, "68": 52, "69": 58, "70": 58, "71": 61, "72": 61, "73": 64, "74": 64, "75": 67, "76": 67, "82": 78, "86": 78, "87": 110, "88": 110, "94": 88}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 32, "27": 76, "28": 130, "29": 149, "35": 6, "39": 6, "40": 19, "41": 19, "47": 132, "51": 132, "57": 35, "62": 35, "63": 48, "64": 49, "65": 50, "66": 51, "67": 51, "68": 51, "69": 53, "70": 59, "71": 59, "72": 62, "73": 62, "74": 65, "75": 65, "76": 68, "77": 68, "83": 79, "87": 79, "88": 111, "89": 111, "95": 89}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """

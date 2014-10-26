@@ -1,8 +1,9 @@
 <%!
-from _base.config import Config, Prepare
+from _base.setting import HOME_TITLE, COPYRIGHT
+from _base.config import Config
 %>
 
-<%def name="head(title)">
+<%def name="head()">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@ from _base.config import Config, Prepare
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>${title}</title>
+    <title>${HOME_TITLE}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -107,7 +108,7 @@ from _base.config import Config, Prepare
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; ${Prepare.name} Powered by <a href="https://github.com/Kzinglzy/hiblog">HiBlog</a></p>
+                    <p class="copyright text-muted">Copyright &copy; ${COPYRIGHT} | Powered by <a href="https://github.com/Kzinglzy/hiblog">HiBlog</a></p>
                 </div>
             </div>
         </div>

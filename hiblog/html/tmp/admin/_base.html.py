@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413969310.338663
+_modified_time = 1414309745.925402
 _enable_loop = True
 _template_filename = u'/web/kzing.net/hiblog/html/templates/admin/_base.html'
 _template_uri = u'admin/_base.html'
@@ -76,14 +76,16 @@ def render_nav(context):
         __M_writer(u'\n')
         if msgs:
             for o in msgs:
-                __M_writer(u'                                <li>\n                                    <a href="/admin/msg_wall">\n                                        <div>\n                                            <strong>')
+                __M_writer(u'                                <li>\n                                    <a href="/admin/msg_wall/')
+                __M_writer(unicode(o._id))
+                __M_writer(u'">\n                                        <div>\n                                            <strong>')
                 __M_writer(unicode(o.user_name))
                 __M_writer(u'</strong>\n                                            <span class="pull-right text-muted">\n                                                <em>')
                 __M_writer(unicode(o.post_time))
                 __M_writer(u'</em>\n                                            </span>\n                                        </div>\n                                        <div>')
                 __M_writer(unicode(o.msg_summarize))
                 __M_writer(u'</div>\n                                    </a>\n                                </li>\n')
-            __M_writer(u'\n                            <li class="divider"></li>\n                            <li>\n                                <a class="text-center" href="#">\n                                    <strong>Read All Messages</strong>\n                                    <i class="fa fa-angle-right"></i>\n                                </a>\n                            </li>\n\n')
+            __M_writer(u'\n                            <li class="divider"></li>\n                            <li>\n                                <a class="text-center" href="/admin/msg_wall">\n                                    <strong>Read All Messages</strong>\n                                    <i class="fa fa-angle-right"></i>\n                                </a>\n                            </li>\n\n')
         else:
             __M_writer(u'                            <li>\n                                <a class="text-center" href="javascript:void(0)">\n                                    <strong> No Messages New</strong>\n                                </a>\n\n                            </li>\n')
         __M_writer(u'                    </ul>\n                    <!-- /.dropdown-messages -->\n                </li>\n                <!-- /.dropdown -->\n                <li class="dropdown">\n                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">\n                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>\n                    </a>\n                    <ul class="dropdown-menu dropdown-user">\n                        <li><a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>\n                        </li>\n                    </ul>\n                    <!-- /.dropdown-user -->\n                </li>\n                <!-- /.dropdown -->\n            </ul>\n            <!-- /.navbar-top-links -->\n        </nav>\n')
@@ -121,6 +123,6 @@ def render_nav_side(context,cur_path=None):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 40, "27": 122, "28": 151, "29": 171, "35": 5, "39": 5, "45": 154, "49": 154, "55": 43, "59": 43, "60": 53, "61": 53, "62": 61, "66": 63, "67": 64, "68": 65, "69": 65, "70": 65, "71": 67, "72": 70, "76": 72, "77": 73, "78": 74, "79": 75, "80": 78, "81": 78, "82": 80, "83": 80, "84": 83, "85": 83, "86": 87, "87": 96, "88": 97, "89": 104, "95": 124, "99": 124, "100": 128, "110": 136, "111": 138, "112": 138, "113": 141, "114": 141, "115": 144, "116": 144, "122": 116}, "uri": "admin/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 40, "27": 122, "28": 151, "29": 171, "35": 5, "39": 5, "45": 154, "49": 154, "55": 43, "59": 43, "60": 53, "61": 53, "62": 61, "66": 63, "67": 64, "68": 65, "69": 65, "70": 65, "71": 67, "72": 70, "76": 72, "77": 73, "78": 74, "79": 75, "80": 76, "81": 76, "82": 78, "83": 78, "84": 80, "85": 80, "86": 83, "87": 83, "88": 87, "89": 96, "90": 97, "91": 104, "97": 124, "101": 124, "102": 128, "112": 136, "113": 138, "114": 138, "115": 141, "116": 141, "117": 144, "118": 144, "124": 118}, "uri": "admin/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/_base.html"}
 __M_END_METADATA
 """

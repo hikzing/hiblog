@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1413968382.369104
+_modified_time = 1414309513.981951
 _enable_loop = True
 _template_filename = '/web/kzing.net/hiblog/html/templates/admin/msgwall.html'
 _template_uri = 'admin/msgwall.html'
@@ -43,7 +43,7 @@ def render_body(context,**pageargs):
         __M_writer(unicode(base.nav()))
         __M_writer(u'\n        ')
         __M_writer(unicode(base.nav_side('msg')))
-        __M_writer(u'\n        <div id="page-wrapper">\n            <div class="row">\n                <div class="col-lg-12">\n                    <h1 class="page-header">\u7559\u8a00\u5899</h1>\n                </div>\n                <!-- /.col-lg-12 -->\n            </div>\n            <!-- /.row -->\n')
+        __M_writer(u'\n        <div id="page-wrapper">\n            <div class="row">\n                <div class="col-lg-12">\n                    <h1 class="page-header">\u7559\u8a00\u5899</h1>\n                </div>\n            </div>\n\n            <!-- /.row -->\n\n')
         for index, msg in enumerate(msgs):
             if not index & 1:
                 __M_writer(u'                    <div class="row">\n')
@@ -65,7 +65,7 @@ def render_body(context,**pageargs):
             __M_writer(u'</b>\n                        </div>\n                    </div>\n                </div>\n')
             if index & 1:
                 __M_writer(u'                    </div>\n')
-        __M_writer(u'        </div>\n        ')
+        __M_writer(u'            <div class="row">\n                <div class="col-lg-6">\n                    <div class="panel panel-green">\n                        <div class="panel-heading">\n                            From: <b>Kzing</b>\n                        </div>\n                        <div class="panel-body">\n                            <p>\u6b22\u8fce\u4f7f\u7528 HiBlog</p>\n                            <p>\u5982\u679c\u4f60\u9047\u5230\u4ec0\u4e48\u95ee\u9898, \u53ef\u4ee5\u901a\u8fc7\u4e0b\u9762\u7684\u65b9\u5f0f\u8054\u7cfb\u6211</p>\n                            <p><b>kzinglzy@gmail.com</b> | <a href="https://github.com/Kzinglzy/hiblog">Github</a></p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n        ')
         __M_writer(unicode(pager.Pager(total, limit)))
         __M_writer(u'\n    ')
         __M_writer(unicode(base.footer()))
@@ -77,6 +77,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 19, "48": 20, "49": 21, "50": 23, "51": 24, "52": 25, "53": 26, "54": 27, "55": 29, "56": 30, "57": 30, "58": 33, "59": 33, "60": 34, "61": 34, "62": 37, "63": 37, "64": 37, "65": 37, "66": 41, "67": 42, "68": 45, "69": 46, "70": 46, "71": 47, "72": 47, "78": 72}, "uri": "admin/msgwall.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/msgwall.html"}
+{"source_encoding": "utf-8", "line_map": {"22": 1, "25": 2, "28": 0, "39": 1, "40": 2, "41": 4, "42": 4, "43": 9, "44": 9, "45": 10, "46": 10, "47": 20, "48": 21, "49": 22, "50": 24, "51": 25, "52": 26, "53": 27, "54": 28, "55": 30, "56": 31, "57": 31, "58": 34, "59": 34, "60": 35, "61": 35, "62": 38, "63": 38, "64": 38, "65": 38, "66": 42, "67": 43, "68": 46, "69": 62, "70": 62, "71": 63, "72": 63, "78": 72}, "uri": "admin/msgwall.html", "filename": "/web/kzing.net/hiblog/html/templates/admin/msgwall.html"}
 __M_END_METADATA
 """

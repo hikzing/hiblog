@@ -1,8 +1,11 @@
+<%!
+from _base.setting import HOME_TITLE, HOME_DESC
+%>
 <%namespace name="base" file="_base.html"/>
 <%namespace name="pager" file="_pager.html"/>
 
 
-${base.head('kzing.net | Home')}
+${base.head()}
 
 <body>
 
@@ -14,9 +17,9 @@ ${base.head('kzing.net | Home')}
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>${home_title}</h1>
+                        <h1>${HOME_TITLE}</h1>
                         <hr class="small">
-                        <span class="subheading">${home_desc}</span>
+                        <span class="subheading">${HOME_DESC}</span>
                     </div>
                 </div>
             </div>

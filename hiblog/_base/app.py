@@ -34,7 +34,8 @@ class App:
 
     def __init__(self):
         self.setting = dict(
-            static_path=abspath(join(dirname(__file__), "../html/static")),  # TODO
+            static_path=abspath(
+                join(dirname(__file__), "../html/static")),
         )
 
     @property
@@ -46,7 +47,8 @@ class App:
         ROUTE_LIST = import_module('view._route_list').ROUTE_LIST
         handlers = []
         for route in ROUTE_LIST:
-            handlers.extend(import_module('{}.{}'.format(view_name, route)).route.handlers)
+            handlers.extend(
+                import_module('{}.{}'.format(view_name, route)).route.handlers)
         return handlers
 
 app = App()
