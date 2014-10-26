@@ -1,73 +1,41 @@
-**This is a clean blog for quickly make a blog site**
+### This is A Clean Blog For Quickly Make A Blog Site
 
-It's powered by [Tornado][1] and the theme is come from [Startbootstrap][4]
+**which Powered by [Tornado][1] and [clean-blog][2] theme**
 
 
-Now, it have some blow features:
+### Features:
 
 * Markdown syntax
-* Admin manager
+* BackupAdmin manager
 * Message System
 
-There will be some new features like **category**, **tag** and **feed** and so on.
+### TODO:
 
----
+* category & tag & feed
+* something else
 
-Usage:
 
-Requirements:
+### Requirements
 >
 1. [Tornado][1]
-2. [Mongokit][2]
-3. [Redis][3]
+2. [Mongokit][3]
+3. [Redis][4]
 
-setup:
+### Setup
+>
+1. get source code: `git clone https://github.com/Kzinglzy/hiblog`
+2. Install required package: `pip install -r requirements.txt`
+3. set config:  edit the `hiblog/_base/config.py`
+4. run server: `./run.sh`
 
-* clone this: `git clone https://github.com/Kzinglzy/hiblog`
-* Install required package: `pip install -r requirements.txt`
-* config:  edit the `hiblog/_base/config.py` and write your host.
-> if you want to make a personal setting, please edit the `hiblog/_base/setting.py`
-* run server: `./run.sh`
+>Tips: you can edit the `hiblog/_base/setting.py` to make a personal setting.
+
+### Licence
+
+MIT Licence. See MIT-LICENCE
 
 
 [1]: http://www.tornadoweb.org/
-[2]: http://..
-[3]: http://...
-[4]: http://...
-[5]: http://...**This is a clean blog for quickly make a blog site**
-
-It's powered by [Tornado][1] and the theme is come from [Startbootstrap][4]
-
-
-Now, it have some blow features:
-
-* Markdown syntax
-* Admin manager
-* Message System
-
-There will be some new features like **category**, **tag** and **feed** and so on.
-
----
-
-Usage:
-
-Requirements:
->
-1. [Tornado][1]
-2. [Mongokit][2]
-3. [Redis][3]
-
-setup:
-
-* clone this: `git clone https://github.com/Kzinglzy/hiblog`
-* Install required package: `pip install -r requirements.txt`
-* config:  edit the `hiblog/_base/config.py` and write your host.
-> if you want to make a personal setting, please edit the `hiblog/_base/setting.py`
-* run server: `./run.sh`
-
-
-[1]: http://www.tornadoweb.org/
-[2]: http://..
-[3]: http://...
-[4]: http://...
-[5]: http://...
+[2]: https://github.com/ironsummitmedia/startbootstrap-clean-blog/
+[3]: https://github.com/namlook/mongokit
+[4]: https://github.com/andymccurdy/redis-py

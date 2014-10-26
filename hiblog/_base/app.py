@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 import _env
+from config import Config
 from os.path import dirname, abspath, join
 from importlib import import_module
 
@@ -34,8 +35,8 @@ class App:
 
     def __init__(self):
         self.setting = dict(
-            static_path=abspath(
-                join(dirname(__file__), "../html/static")),
+            static_path=abspath(join(dirname(__file__), "../html/static")),
+            debug=Config.DEBUG
         )
 
     @property
