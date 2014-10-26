@@ -1,13 +1,13 @@
-### This is A Clean Blog For Quickly Make A Blog Site
+### A Clean And Pure Blog
 
 **which Powered by [Tornado][1] and [clean-blog][2] theme**
 
 
 ### Features:
 
-* Markdown syntax
-* BackupAdmin manager
+* Admin manager
 * Message System
+* Markdown syntax
 
 ### TODO:
 
