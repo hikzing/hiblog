@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-import _env
 from _base.app import Route
 from _base.controller import JsonErrView, JsonAdminView
 from _base.json_ob import JsOb
@@ -32,10 +31,14 @@ class Login(JsonErrView):
             err.password = '请输入密码'
 
         if not err:
-            if Password.verify(account, password):
-                self.set_session(account)
+            if Password.account_exist(account):
+                if Password.verify(account, password):
+                    self.set_session(account)
+                else:
+                    err.password = '密码错误'
             else:
-                err.password = '帐号或密码错误'
+                err.email = "帐号不存在"
+
         self.render(err)
 
 

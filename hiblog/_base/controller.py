@@ -5,6 +5,7 @@ import _env
 from _base.config import Config
 from _base.mako_render import mako_render
 from model.session import Session
+from model.admin import is_admin
 from tornado.web import RequestHandler, HTTPError
 from _base.json_ob import StripJsOb
 from yajl import loads
@@ -33,7 +34,7 @@ class BaseView(RequestHandler):
     @property
     def can_admin(self):
         current_user = self.current_user
-        return current_user and current_user in Config.admin_set
+        return current_user and is_admin(current_user)
 
     def render(self, template_name=None, **kwds):
         """ 重写render的行为.
@@ -112,6 +113,7 @@ class JsonAdminView(JsonLoginView):
         super(JsonAdminView, self).prepare()
         if not self._finished:
             if not self.can_admin:
+                # self.clear_cookie('auth')
                 raise HTTPError(405)
 
 

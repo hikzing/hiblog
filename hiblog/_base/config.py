@@ -7,12 +7,13 @@ class Config:
 
     """ 主配置文件
     """
+    DEBUG = False
 
-    # app
-    APP = 'blog'
-    DEBUG = True
+    APP = 'blog'         # app名对应于数据库名
 
-    host = 'localhost:8888'
+    host = 'localhost'   # 域名
+
+    ######################
 
     # redis
     class REDIS(Star):
@@ -25,9 +26,6 @@ class Config:
         host = "127.0.0.1"
         port = 27017
     MONGO = MONGO()
-
-    # admin
-    admin_set = {'kzing@gmail.com', }
 
 
 class Prepare:

@@ -38,6 +38,6 @@ class RedisKey:
                 k = int_str.encode(id)
                 if name and '%' in name:
                     k += "'" + name
-                redis.hset(REDIS_KEY, key, k)
+                redis.hsetnx(REDIS_KEY, key, k)
 
             return k

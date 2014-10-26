@@ -39,7 +39,21 @@ class Password(Doc):
 
         return False
 
+    @classmethod
+    def reset(cls, mail, password):
+        o = Password.find_one(dict(mail=mail))
+        if o and o.password:
+            o.password = password
+            o.save()
+
+    @classmethod
+    def account_exist(cls, mail):
+        return Password.find_one(dict(mail=mail)) is not None
+
 if __name__ == '__main__':
     # Password.new('kzing@gmail.com', '12345678')
-    Password.new('test@gmail.com', 'test')
+    # Password.new('test@gmail.com', 'test')
     # print(Password.verify('kzing@gmail.com', '12345678'))
+    # Password.remove()
+    pass
+

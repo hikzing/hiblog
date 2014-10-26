@@ -6,7 +6,6 @@ from mongokit import Document, Connection
 from mongokit.document import DocumentProperties
 import mongokit.connection
 
-
 mongo = Connection(**Config.MONGO)
 
 
@@ -15,7 +14,6 @@ class MetaDoc(DocumentProperties):
     def __new__(cls, name, bases, attrs):
         new_cls = super(MetaDoc, cls).__new__(cls, name, bases, attrs)
         if bases[0] is not Document:
-
             new_cls.__mongo__ = mongo
             if not new_cls.__name__.startswith('Callable'):
                 new_cls.__collection__ = (name[0].lower() + name[1:])
@@ -120,4 +118,5 @@ class CallableMixin(object):
             lang=lang,
             fallback_lang=fallback_lang
         )
+
 mongokit.connection.CallableMixin = CallableMixin

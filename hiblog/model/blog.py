@@ -5,7 +5,6 @@ import time
 from model.db import Doc
 from _base.json_ob import JsOb
 from model.my_markdown import turn_to_markdown
-from bson.objectid import ObjectId
 
 
 class Blog(Doc):
@@ -117,8 +116,11 @@ def watch_new(blog):
 
 
 if __name__ == '__main__':
-    Blog(dict(author='lzy')).upsert("5444c662f543d637491e7258")
     # print(Blog.find_one("5444c662f543d637491e7258").title.encode('utf-8'))
     # print(Blog.find_one(dict(title="我是一个从后台管理页面创建的长标题哦"))._id)
     # print(isinstance({'_id': "5444c662f543d637491e7258"}, basestring))
-    pass
+    # b = Blog()
+    # b.author = "test blog 2"
+    # b.content = "hello, blog 2"
+    # b.save()
+    Blog.remove()

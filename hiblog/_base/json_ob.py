@@ -9,7 +9,7 @@ class JsOb(dict):
 
     """ 修改后的字典类, 可以使用如obj.attr的用法
 
-    常用于模拟json对象
+    用于模拟json对象
     """
 
     def __init__(self, *args, **kwds):
@@ -35,7 +35,7 @@ class JsOb(dict):
 
 class StripJsOb(JsOb):
 
-    """ 去除 Json 对象的值的前后空白, 返回新的 Json对象
+    """ 去除 Json 对象的前后空白, 返回新的 Json对象
 
     常用于处理用户的表单输入
     """

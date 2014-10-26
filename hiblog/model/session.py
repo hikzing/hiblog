@@ -53,7 +53,9 @@ def _encode(account, session, encode=urlsafe_b64encode):
 
 
 if __name__ == '__main__':
-    # s = Session.new('kzing')
+    s = Session.new('kzing')
+    # s = "a3ppbmdAZ21haWwuY29tLZ_0get_VCQPZBLSgQ=="
+    # print(s)
     # cookies = "MjEzQDEzLmNvbS5_gm2z5ISP8Vv5_bw="
-    s = "a3ppbmdAZ21haWwuY29tLbWrNNw0fzMy2C3uvg=="
+    # s = "a3ppbmdAZ21haWwuY29tLbWrNNw0fzMy2C3uvg=="
     print(Session.account_by_cookie(s))

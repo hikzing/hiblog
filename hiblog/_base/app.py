@@ -1,18 +1,16 @@
 #!/usr/bin/env python
 # coding:utf-8
 import _env
-import tornado.web
-import tornado.ioloop
 from os.path import dirname, abspath, join
 from importlib import import_module
 
 
 class Route:
 
-    """ 用装饰器的形式收集 url 路径
+    """ 用装饰器的形式收集 url 路径.
 
     如:
-        route = Route()
+        route = Route(prefix='')
 
         @route('hello')
         class HelloHandler(RequestHandler):
@@ -42,6 +40,8 @@ class App:
     @property
     def handlers(self, view_name='view'):
         """ 返回所有在 view的_route_list里定义的route的 handlers.
+
+        模拟 Flask 的 BluePrint.
         """
         ROUTE_LIST = import_module('view._route_list').ROUTE_LIST
         handlers = []
@@ -49,14 +49,4 @@ class App:
             handlers.extend(import_module('{}.{}'.format(view_name, route)).route.handlers)
         return handlers
 
-    def run(self, port=8888):
-        app = tornado.web.Application(self.handlers, **self.setting)
-        app.listen(port)
-        tornado.ioloop.IOLoop.instance().start()
-
-
 app = App()
-
-if __name__ == '__main__':
-    # print(app.handlers)
-    app.run()

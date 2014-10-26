@@ -27,21 +27,25 @@ ${base.head('kzing.net | Home')}
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                % for blog in blogs:
-                <div class="post-preview">
-                    <a href="/blog/${blog.slug_title}">
-                        <h2 class="post-title">
-                            ${blog.title}
-                        </h2>
-                        <h3 class="post-subtitle">
-                            ${blog.summarize}
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="${blog.author_page}">${blog.author}</a> on ${blog.post_date}</p>
-                </div>
-                <hr>
-                % endfor
-
+                % if not blogs:
+                    <div class="post-preview">
+                        <h2 class="post-subtitle">还没有写过blog. 去后台新建一篇吧: )</h2>
+                % else:
+                    % for blog in blogs:
+                    <div class="post-preview">
+                        <a href="/blog/${blog.slug_title}">
+                            <h2 class="post-title">
+                                ${blog.title}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                ${blog.summarize}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by <a href="${blog.author_page}">${blog.author}</a> on ${blog.post_date}</p>
+                    </div>
+                    <hr>
+                    % endfor
+                % endif
                 <!-- Pager -->
                 ${pager.Pager(total, limit)}
             </div>

@@ -1,54 +1,37 @@
 #!/usr/bin/env python
 # coding:utf-8
-
-#
-# Thanks much to my tutor zsp : )
-#
-
-from string import ascii_uppercase
+from string import ascii_letters
 
 
 class IntStr:
 
-    def __init__(self, alphabet=ascii_uppercase, sign_character=None):
-        """ 将数字转为更短的字符. 可用于生成更短的redis key以减少内存占用或短 url
+    """ 用于将数值型转为较短的字符串.
 
-        @param: alphabet 预定义的短字符集合
-        """
+    用于生成更短更省内存的 redis 键
+    """
+
+    #: @param alphabet: 默认的字符编码
+    def __init__(self, alphabet=ascii_letters):
         self.alphabet = alphabet
-        self.sign_character = sign_character
-        self._base = len(alphabet)
+        self.alphabet_reverse = {v: i for i, v in enumerate(alphabet)}
+        self.base = len(alphabet)
 
-        # 键和键对应的索引的字典
-        self._alphabet_index = {value: index for index, value in enumerate(alphabet)}
-
-    def encode(self, num):
-        """ 将数值转为短字符串
-        """
-        sign = self.sign_character
-        if num < 0:
-            if sign:
-                return sign + self.encode(-num)
-            else:
-                raise Exception('should give a sign character when num is below zero')
-
-        result = []
-        while num:
-            num, r = divmod(num, self._base)
-            result.append(self.alphabet[r])
-
-        return ''.join(reversed(result))
+    def encode(self, n):
+        def _encode(n):
+            while n:
+                n, r = divmod(n, self.base)
+                yield self.alphabet[r]
+        return ''.join(_encode(n))
 
     def decode(self, s):
-        """ 将短字符串还原为原始数值
-        """
-        sign = self.sign_character
-        if sign and s.startswith(sign):
-            return -self.decode(s[len(sign):])
         n = 0
-        for c in s:
-            n = n * self._base + self._alphabet_index[c]
-
+        for c in reversed(s):
+            n = n * self.base + self.alphabet_reverse[c]
         return n
 
 int_str = IntStr()
+if __name__ == '__main__':
+    t = IntStr()
+    s = t.encode(123456789)
+    print(s)
+    print(t.decode(s))
