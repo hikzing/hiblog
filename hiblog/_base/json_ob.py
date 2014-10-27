@@ -56,3 +56,5 @@ if __name__ == '__main__':
     # d = {'a':1, 'b':2}
     d = JsOb(a='12 ', b=' ab          ', c=' dad\n')
     print(StripJsOb(**d))
+    print(JsOb(a=1,c="你好"))
+

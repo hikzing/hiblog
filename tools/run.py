@@ -10,6 +10,7 @@ define("port", default=8000, help="develop mode with given port", type=int)
 
 
 def run():
+    tornado.options.parse_command_line()
     APP = tornado.web.Application(app.handlers, **app.setting)
     APP.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()

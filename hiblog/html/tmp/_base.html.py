@@ -4,9 +4,9 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1414309740.784525
+_modified_time = 1414329273.162994
 _enable_loop = True
-_template_filename = u'/web/kzing.net/hiblog/html/templates/_base.html'
+_template_filename = u'/web/hiblog/hiblog/html/templates/_base.html'
 _template_uri = u'/_base.html'
 _source_encoding = 'utf-8'
 _exports = ['head', 'disqus', 'nav', 'footer']
@@ -72,9 +72,7 @@ def render_nav(context):
         __M_writer(unicode(Config.host))
         __M_writer(u'/about">About</a>\n                    </li>\n                    <li>\n                        <a href="//')
         __M_writer(unicode(Config.host))
-        __M_writer(u'/contact">Contact</a>\n                    </li>\n                    <li>\n                        <a href="//')
-        __M_writer(unicode(Config.host))
-        __M_writer(u'/sample_post">Sample Post</a>\n                    </li>\n                </ul>\n            </div>\n            <!-- /.navbar-collapse -->\n        </div>\n        <!-- /.container -->\n    </nav>\n')
+        __M_writer(u'/contact">Contact</a>\n                    </li>\n                </ul>\n            </div>\n            <!-- /.navbar-collapse -->\n        </div>\n        <!-- /.container -->\n    </nav>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -94,6 +92,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 32, "27": 76, "28": 130, "29": 149, "35": 6, "39": 6, "40": 19, "41": 19, "47": 132, "51": 132, "57": 35, "62": 35, "63": 48, "64": 49, "65": 50, "66": 51, "67": 51, "68": 51, "69": 53, "70": 59, "71": 59, "72": 62, "73": 62, "74": 65, "75": 65, "76": 68, "77": 68, "83": 79, "87": 79, "88": 111, "89": 111, "95": 89}, "uri": "/_base.html", "filename": "/web/kzing.net/hiblog/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 32, "27": 73, "28": 127, "29": 146, "35": 6, "39": 6, "40": 19, "41": 19, "47": 129, "51": 129, "57": 35, "62": 35, "63": 48, "64": 49, "65": 50, "66": 51, "67": 51, "68": 51, "69": 53, "70": 59, "71": 59, "72": 62, "73": 62, "74": 65, "75": 65, "81": 76, "85": 76, "86": 108, "87": 108, "93": 87}, "uri": "/_base.html", "filename": "/web/hiblog/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """

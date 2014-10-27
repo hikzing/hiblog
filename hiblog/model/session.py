@@ -53,4 +53,6 @@ def _encode(account, session, encode=urlsafe_b64encode):
 
 
 if __name__ == '__main__':
-    pass
+    cookie = "a3ppbmdsenlAZ21haWwuY29tLek3BwPr8NbAFoeSQg=="
+    # print(Session.account_by_cookie(cookie))
+    print(_decode(cookie))

@@ -9,26 +9,28 @@
 * Message System
 * Markdown syntax
 
-### TODO:
-
-* category & tag & feed
-* something else
-
-
 ### Requirements
 >
 1. [Tornado][1]
-2. [Mongokit][3]
+2. [Mongo][3]
 3. [Redis][4]
 
 ### Setup
->
-1. get source code: `git clone https://github.com/Kzinglzy/hiblog`
-2. Install required package: `pip install -r requirements.txt`
-3. set config:  edit the `hiblog/_base/config.py`
-4. run server: `./run.sh`
 
->Tips: you can edit the `hiblog/_base/setting.py` to make a personal setting.
+1. get source code: `git clone https://github.com/Kzinglzy/hiblog`
+
+2. Install required package: `pip install -r requirements.txt`
+
+3. Install Mongodb & Redis and then start the server
+
+4. edit the `hiblog/_base/config.py` & `hiblog/_base/setting.py` for personal
+setting.
+
+5. run `python tools/admin_guide.py` to create a admin user
+
+6. run `python tools/run.py` to start the blog server
+
+> For more details and develop suggestions, see [Here][5](CN)
 
 ### Licence
 
@@ -37,5 +39,6 @@ MIT Licence. See MIT-LICENCE
 
 [1]: http://www.tornadoweb.org/
 [2]: https://github.com/ironsummitmedia/startbootstrap-clean-blog/
-[3]: https://github.com/namlook/mongokit
-[4]: https://github.com/andymccurdy/redis-py
+[3]: https://www.mongodb.org
+[4]: https://redis.io
+[5]: http://kzing.net/blog/关于这个blog
