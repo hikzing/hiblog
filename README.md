@@ -21,14 +21,12 @@
 
 2. Install required package: `pip install -r requirements.txt`
 
-3. Install Mongodb & Redis and then start the server
-
-4. edit the `hiblog/_base/config.py` & `hiblog/_base/setting.py` for personal
+3. edit the `hiblog/_base/config.py` & `hiblog/_base/setting.py` for personal
 setting.
 
-5. run `python tools/admin_guide.py` to create a admin user
+4. run `python tools/admin_guide.py` to create a admin user
 
-6. run `python tools/run.py` to start the blog server
+5. run `python tools/run.py` to start the blog server
 
 > For more details and develop suggestions, see [Here][5](CN)
 
