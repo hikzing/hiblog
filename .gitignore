@@ -5,3 +5,6 @@ env*
 dist
 *.egg
 *.egg-info
+*.html.py
+*.html.pyc
+*.rdb
