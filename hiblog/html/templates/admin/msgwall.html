@@ -16,6 +16,22 @@ ${base.head()}
             </div>
 
             <!-- /.row -->
+            % if not msgs:
+                <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            From: <b>Kzing</b>
+                        </div>
+                        <div class="panel-body">
+                            <p>欢迎使用 HiBlog</p>
+                            <p>如果你遇到什么问题, 可以通过下面的方式联系我</p>
+                            <p><b>kzinglzy@gmail.com</b> | <a href="https://github.com/Kzinglzy/hiblog">Github</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            % endif
 
             % for index, msg in enumerate(msgs):
                 % if not index & 1:
@@ -43,21 +59,6 @@ ${base.head()}
                     </div>
                 % endif
             % endfor
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            From: <b>Kzing</b>
-                        </div>
-                        <div class="panel-body">
-                            <p>欢迎使用 HiBlog</p>
-                            <p>如果你遇到什么问题, 可以通过下面的方式联系我</p>
-                            <p><b>kzinglzy@gmail.com</b> | <a href="https://github.com/Kzinglzy/hiblog">Github</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
         ${pager.Pager(total, limit)}
     ${base.footer()}

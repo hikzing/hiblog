@@ -24,6 +24,7 @@ $('#blogForm').submit(function() {
                 for(var key in myhash) {
                     var err_help = $('#' + key).next();
                     err_help.removeClass('hide');
+                    err_help.parent().addClass('has-error')
                     err_help.text(myhash[key]);
                 }
             }
@@ -42,20 +43,22 @@ $('#blogForm').submit(function() {
 })
 
 function delBlog(id) {
-    $.ajax({
-        type: 'POST',
-        url: '/admin/j/blog/rm/' + id,
-        dataType: 'JSON',
-        data: {},
-        cache: false,
-        success: function() {
-            window.location.reload()
-        },
-        error: function() {
-            alert('删除失败');
-        }
+    if(confirm("确定删除这篇文章吗?")){
+        $.ajax({
+            type: 'POST',
+            url: '/admin/j/blog/rm/' + id,
+            dataType: 'JSON',
+            data: {},
+            cache: false,
+            success: function() {
+                window.location.reload()
+            },
+            error: function() {
+                alert('删除失败');
+            }
 
-    })
+        })
+    }
     return false;
 }
 
