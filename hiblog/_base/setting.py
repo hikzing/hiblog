@@ -21,7 +21,7 @@ CONTACT_CONTENT = "Just Contact Me"           # 具体内容
 ADMIN_PAGE_LIMIT = 5                      # 管理页面的预览文章时的每页显示数目
 
 # Blog评论
-DISQUS_SHORTNAME = 'disqus_shortname'     # 你在 disqus 上的名字
+DISQUS_SHORTNAME = 'kzing'     # 你在 disqus 上的名字
 
 # Copyright
 COPYRIGHT = "SOME_NAME"              # 版权所属者.

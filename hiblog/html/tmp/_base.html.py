@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1414329273.162994
+_modified_time = 1414382479.985992
 _enable_loop = True
 _template_filename = u'/web/hiblog/hiblog/html/templates/_base.html'
 _template_uri = u'/_base.html'
@@ -13,7 +13,7 @@ _exports = ['head', 'disqus', 'nav', 'footer']
 
 
 
-from _base.setting import HOME_TITLE, COPYRIGHT
+from _base.setting import HOME_TITLE, COPYRIGHT, DISQUS_SHORTNAME
 from _base.config import Config
 
 
@@ -48,7 +48,9 @@ def render_disqus(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
-        __M_writer(u'\n    <div id="disqus_thread"></div>\n    <script type="text/javascript">\n        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\n\n        var disqus_shortname = \'kzing\'; // required: replace example with your forum shortname\n\n        /* * * DON\'T EDIT BELOW THIS LINE * * */\n        (function() {\n            var dsq = document.createElement(\'script\'); dsq.type = \'text/javascript\'; dsq.async = true;\n            dsq.src = \'//\' + disqus_shortname + \'.disqus.com/embed.js\';\n            (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n        })();\n    </script>\n    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>\n    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>\n\n')
+        __M_writer(u'\n    <div id="disqus_thread"></div>\n    <script type="text/javascript">\n        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\n\n        var disqus_shortname = \'')
+        __M_writer(unicode(DISQUS_SHORTNAME))
+        __M_writer(u'\'; // required: replace example with your forum shortname\n\n        /* * * DON\'T EDIT BELOW THIS LINE * * */\n        (function() {\n            var dsq = document.createElement(\'script\'); dsq.type = \'text/javascript\'; dsq.async = true;\n            dsq.src = \'//\' + disqus_shortname + \'.disqus.com/embed.js\';\n            (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n        })();\n    </script>\n    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>\n    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -92,6 +94,6 @@ def render_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 32, "27": 73, "28": 127, "29": 146, "35": 6, "39": 6, "40": 19, "41": 19, "47": 129, "51": 129, "57": 35, "62": 35, "63": 48, "64": 49, "65": 50, "66": 51, "67": 51, "68": 51, "69": 53, "70": 59, "71": 59, "72": 62, "73": 62, "74": 65, "75": 65, "81": 76, "85": 76, "86": 108, "87": 108, "93": 87}, "uri": "/_base.html", "filename": "/web/hiblog/hiblog/html/templates/_base.html"}
+{"source_encoding": "utf-8", "line_map": {"15": 1, "20": 0, "25": 4, "26": 32, "27": 73, "28": 127, "29": 146, "35": 6, "39": 6, "40": 19, "41": 19, "47": 129, "51": 129, "52": 134, "53": 134, "59": 35, "64": 35, "65": 48, "66": 49, "67": 50, "68": 51, "69": 51, "70": 51, "71": 53, "72": 59, "73": 59, "74": 62, "75": 62, "76": 65, "77": 65, "83": 76, "87": 76, "88": 108, "89": 108, "95": 89}, "uri": "/_base.html", "filename": "/web/hiblog/hiblog/html/templates/_base.html"}
 __M_END_METADATA
 """
