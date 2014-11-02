@@ -4,7 +4,7 @@ import _env
 from _base.app import Route
 from _base.controller import BaseView
 from _base.config import Config
-from _base.setting import HOME_PAGE_LIMIT
+from _base.setting import HOME_PAGE_LIMIT, ABOUT_CONTENT
 from model.blog import blog_lists, blog_by_slug_name, blog_count
 from model.my_markdown import turn_to_markdown
 from tornado.web import HTTPError
@@ -50,7 +50,7 @@ class Post(BaseView):
 class About(BaseView):
 
     def get(self):
-        return self.render()
+        return self.render(about=turn_to_markdown(ABOUT_CONTENT))
 
 
 @route('/about/me')
