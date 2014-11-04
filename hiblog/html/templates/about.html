@@ -1,10 +1,10 @@
 <%!
-from _base.setting import ABOUT_TITLE, ABOUT_DESC
+from _base.setting import ABOUT_TITLE, ABOUT_DESC, SITE_TITLE
 %>
 
 <%namespace name="base" file="_base.html"/>
 
-${base.head()}
+${base.head('About Me - ' + SITE_TITLE)}
 
 
 <body>

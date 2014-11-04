@@ -1,6 +1,10 @@
+<%!
+from _base.setting import SITE_TITLE
+%>
+
 <%namespace name="base" file="_base.html"/>
 
-${base.head()}
+${base.head(blog_title + ' - ' + SITE_TITLE)}
 
 <body>
 

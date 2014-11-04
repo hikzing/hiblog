@@ -1,9 +1,9 @@
 <%!
-from _base.setting import HOME_TITLE, COPYRIGHT, DISQUS_SHORTNAME
+from _base.setting import COPYRIGHT, DISQUS_SHORTNAME, SITE_TITLE
 from _base.config import Config
 %>
 
-<%def name="head()">
+<%def name="head(title)">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ from _base.config import Config
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>${HOME_TITLE}</title>
+    <title>${title}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
