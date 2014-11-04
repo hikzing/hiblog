@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
-"""mongokit 的使用方式过于麻烦.因此重构了一些实现和方法.
-不需要在为每个Document填写使用的数据库名, 集合名.
-"""
+
+# 修改mongokit的部分实现使得不需要为每个Document填写使用的数据库名, 集合名.
 
 from _base.config import Config
 from bson.objectid import ObjectId
@@ -14,6 +13,9 @@ mongo = Connection(**Config.MONGO)
 
 
 class MetaDoc(DocumentProperties):
+
+    """ 给Document带上默认的 collection 名
+    """
 
     def __new__(cls, name, bases, attrs):
         new_cls = super(MetaDoc, cls).__new__(cls, name, bases, attrs)
@@ -113,7 +115,9 @@ class CallableMixin(object):
 
     """重写参数gen_skel的默认值为False.
 
-    若为 True, 查询时得到的纪录值会被 default_values 里的值覆盖
+    若为 True, 查询时得到的纪录值会被 default_values 里的值覆盖(?)
+    主要原因在于SchemaDocument中未完成的_set_default_fields方法(?):
+        '# TODO check this out, this method must be restructured'
     """
 
     def __call__(self, doc=None, gen_skel=False, lang='en', fallback_lang='en'):
